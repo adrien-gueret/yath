@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "css": "./node_modules/.bin/cleancss yath.css -o yath.min.css"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^4.1.9"
+  }
+}
