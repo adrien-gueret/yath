@@ -1,8 +1,10 @@
 {
   "scripts": {
-    "css": "./node_modules/.bin/cleancss yath.css -o yath.min.css"
+    "css": "./node_modules/.bin/cleancss yath.css -o yath.min.css",
+    "js": "./node_modules/.bin/uglifyjs yath.js -c -m -o yath.min.js"
   },
   "devDependencies": {
-    "clean-css-cli": "^4.1.9"
+    "clean-css-cli": "^4.1.9",
+    "uglify-js": "^3.1.0"
   }
 }
