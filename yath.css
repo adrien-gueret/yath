@@ -6,7 +6,6 @@ html, body {
 }
 
 .yathScreen {
-    display: none;
     position: fixed;
     top: 5%;
     right: 5%;
@@ -17,10 +16,16 @@ html, body {
     background-color: #fff;
     border-radius: 5px;
     border: 1px solid #d3d3d3;
+    pointer-events: none;
+    transform: translateX(-100vw);
+    transition: transform 200ms;
+    animation: none;
 }
 
 .yathScreen--visible {
-    display: block;
+    pointer-events: auto;
+    transform: translateX(0);
+    animation: slideIn 200ms 1 ease-in;
 }
 
 .yathClickable:not(button):not(input) {
@@ -30,4 +35,9 @@ html, body {
 
 .yathClickable:not(button):not(input):hover {
     text-decoration: underline;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100vw); }
+    to { transform: translateX(0); }
 }
