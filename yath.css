@@ -28,6 +28,26 @@ html, body {
     animation: slideIn 200ms 1 ease-in;
 }
 
+.yathScreen nav button {
+    font-size: 1rem;
+    margin: 10px;
+    border: 2px solid #63b5c8;
+    border-radius: 3px;
+    background: white;
+    color: #63b5c8;
+    padding: 20px;
+   transition: background 200ms, color 200ms;
+}
+
+.yathScreen nav button:hover {
+    color: white;
+    background: #63b5c8;
+}
+
+.yathScreen nav button:active {
+    background: #6d91c8;
+}
+
 .yathClickable:not(button):not(input) {
     cursor: pointer;
     color: #1245ed;
