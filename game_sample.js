@@ -10,8 +10,8 @@
                 en: 'Welcome, trainer!'
             },
             description: {
-                fr: 'Ceci sera un <b data-yath-go-to="tuto1">chouette</b> jeu.',
-                en: 'This will be a <b data-yath-go-to="tuto1">very cool</b> game.'
+                fr: 'Ceci sera un <a href="#" data-yath-go-to="tuto1">chouette</a> jeu.',
+                en: 'This will be a <a href="#" data-yath-go-to="tuto1">very cool</a> game.'
             },
             continue: {
                 fr: 'Continuer',
@@ -21,8 +21,8 @@
     };
 
     var callbacks = {
-      test: function() {
-          console.log(this);
+      test: function(target) {
+          console.log(this, target);
       }
     };
 

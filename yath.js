@@ -65,7 +65,7 @@
                 return true;
             }
 
-            if (callback() === false) {
+            if (callback(e.target) === false) {
                 e.preventDefault();
                 e.stopPropagation();
                 e.stopImmediatePropagation();
