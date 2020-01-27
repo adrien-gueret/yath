@@ -17,8 +17,7 @@
             var screenName = screen.getAttribute('data-yath-screen');
 
             screen.classList.add('yathScreen');
-            screen.classList.add(screenName);
-
+            
             this.screens[screenName] = screen;
 
             screen.removeAttribute('data-yath-screen');
