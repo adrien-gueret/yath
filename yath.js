@@ -1,11 +1,9 @@
 (function(window, document, undefined) {
-    function Game(texts, callbacks, gameContainer) {
+    function Game(gameContainer, callbacks) {
         var that = this;
 
         this.gameContainer = gameContainer || document.body;
-        this.language = 'en';
         this.screens = {};
-        this.texts = texts;
         this.callbacks = Object.keys(callbacks || {}).reduce(function(finalCallbacks, callbackName) {
             finalCallbacks[callbackName] = callbacks[callbackName].bind(that);
             return finalCallbacks;
@@ -100,45 +98,8 @@
             }
         }
 
-        this.translateScreen(targetScreen);
         targetScreen.classList.add('yathScreen--visible');
     };
-
-    Game.prototype.translateScreen = function(screen) {
-          var translatedElements = screen.querySelectorAll('[data-yath-i18n]');
-
-          for (var i = 0, l = translatedElements.length; i < l; i++) {
-              this.translateElement(translatedElements[i]);
-          }
-    };
-
-    Game.prototype.translateElement = function(element) {
-        var label = element.getAttribute('data-yath-i18n');
-
-        if (!label) {
-            return false;
-        }
-
-        var textProperties = label.split('.');
-        var translatedObject = this.texts;
-
-        for (var i = 0, l = textProperties.length; i < l; i++) {
-            translatedObject = translatedObject[textProperties[i]] || {};
-        }
-
-        var translatedText = translatedObject[this.language] || null;
-
-        if (translatedText === null) {
-            return false;
-        }
-
-        element.innerHTML = translatedText;
-
-        this.attachEvents(element);
-
-        return true;
-    };
-
 
     var yath = {
         Game: Game
