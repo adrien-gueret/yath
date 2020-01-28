@@ -1,12 +1,12 @@
 (function(window, document, undefined) {
-    function Game(gameContainer, callbacks) {
+    function Game(gameContainer, onClickCallbacks) {
         var that = this;
 
         this.gameContainer = gameContainer || document.body;
         this.screens = {};
-        this.callbacks = Object.keys(callbacks || {}).reduce(function(finalCallbacks, callbackName) {
-            finalCallbacks[callbackName] = callbacks[callbackName].bind(that);
-            return finalCallbacks;
+        this.onClickCallbacks = Object.keys(onClickCallbacks || {}).reduce(function(allCallbacks, callbackName) {
+            allCallbacks[callbackName] = onClickCallbacks[callbackName].bind(that);
+            return allCallbacks;
         }, {});
         this.data = {};
 
@@ -56,13 +56,13 @@
         var that = this;
 
         return function(e) {
-            var callback = that.callbacks[callbackName];
+            var onClickCallback = that.onClickCallbacks[callbackName];
 
-            if (!callback) {
+            if (!onClickCallback) {
                 return true;
             }
 
-            if (callback(e.target) === false) {
+            if (onClickCallback(that, e) === false) {
                 e.preventDefault();
                 e.stopPropagation();
                 e.stopImmediatePropagation();
