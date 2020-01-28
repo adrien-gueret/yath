@@ -2,15 +2,10 @@
     function Game(gameContainer, onClickCallbacks) {
         var that = this;
 
-        this.gameContainer = gameContainer || document.body;
-        this.screens = {};
-        this.onClickCallbacks = Object.keys(onClickCallbacks || {}).reduce(function(allCallbacks, callbackName) {
-            allCallbacks[callbackName] = onClickCallbacks[callbackName].bind(that);
-            return allCallbacks;
-        }, {});
-        this.data = {};
-
-        var domScreens = this.gameContainer.querySelectorAll('[data-yath-screen]');
+        that.gameContainer = gameContainer || document.body;
+        that.screens = {};
+      
+        var domScreens = that.gameContainer.querySelectorAll('[data-yath-screen]');
 
         for (var screenIndex = 0, totalScreens = domScreens.length; screenIndex < totalScreens; screenIndex++) {
             var screen = domScreens[screenIndex];
@@ -18,69 +13,66 @@
 
             screen.classList.add('yathScreen');
             
-            this.screens[screenName] = screen;
+            that.screens[screenName] = screen;
 
             screen.removeAttribute('data-yath-screen');
         }
 
-        this.attachEvents(this.gameContainer);
-    }
+        var onClickHandlers = Object.keys(onClickCallbacks || {}).reduce(function(allCallbacks, callbackName) {
+            allCallbacks[callbackName] = onClickCallbacks[callbackName].bind(that);
+            return allCallbacks;
+        }, {});
 
-    Game.prototype.attachEvents = function(container) {
-        var domOnclicks = container.querySelectorAll('[data-yath-onclick]');
+        function getClickHandler(callbackName) {
+            return function(e) {
+                var onClickCallback = onClickHandlers[callbackName];
+    
+                if (!onClickCallback) {
+                    return true;
+                }
+    
+                if (onClickCallback(that, e) === false) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+                }
+            };
+        }
+
+        var domOnclicks = that.gameContainer.querySelectorAll('[data-yath-onclick]');
 
         for (var onClickIndex = 0, totalOnclicks = domOnclicks.length; onClickIndex < totalOnclicks; onClickIndex++) {
             var domElement = domOnclicks[onClickIndex];
             var callbackName = domElement.getAttribute('data-yath-onclick');
 
             domElement.classList.add('yathClickable');
-            domElement.addEventListener('click', this.getClickHandler(callbackName));
+            domElement.addEventListener('click', getClickHandler(callbackName));
 
             domElement.removeAttribute('data-yath-onclick');
         }
 
-        var domGoTo = container.querySelectorAll('[data-yath-go-to]');
+        function getGoHandler(screenName) {
+            return function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+    
+                that.goToScreen(screenName);
+            };
+        }
+
+        var domGoTo = that.gameContainer.querySelectorAll('[data-yath-go-to]');
 
         for (var goToIndex = 0, totalGoTo = domGoTo.length; goToIndex < totalGoTo; goToIndex++) {
             var goToElement = domGoTo[goToIndex];
             var screenName = goToElement.getAttribute('data-yath-go-to');
 
             goToElement.classList.add('yathClickable');
-            goToElement.addEventListener('click', this.getGoHandler(screenName));
+            goToElement.addEventListener('click', getGoHandler(screenName));
 
             goToElement.removeAttribute('data-yath-go-to');
         }
-    };
-
-    Game.prototype.getClickHandler = function(callbackName) {
-        var that = this;
-
-        return function(e) {
-            var onClickCallback = that.onClickCallbacks[callbackName];
-
-            if (!onClickCallback) {
-                return true;
-            }
-
-            if (onClickCallback(that, e) === false) {
-                e.preventDefault();
-                e.stopPropagation();
-                e.stopImmediatePropagation();
-            }
-        };
-    };
-
-    Game.prototype.getGoHandler = function(screenName) {
-        var that = this;
-
-        return function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-
-            that.goToScreen(screenName);
-        };
-    };
+    }
 
     Game.prototype.goToScreen = function(screenName) {
         var targetScreen = this.screens[screenName];
