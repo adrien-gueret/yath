@@ -1,7 +1,8 @@
 function yath(container, options) {
     var gameContainer = container || document.body;
-    var onClickCallbacks = options.onClickCallbacks || {};
-    var onScreenChange = options.onScreenChange || function() {};
+    var ensuredOptions = options || {};
+    var onClickCallbacks = ensuredOptions.onClickCallbacks || {};
+    var onScreenChange = ensuredOptions.onScreenChange || function() {};
 
     var screens = {};
     var visitedScreensTracker = {};
