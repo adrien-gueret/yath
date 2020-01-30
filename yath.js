@@ -7,16 +7,16 @@ function yath(container, options) {
     var screens = {};
     var visitedScreensTracker = {};
 
-    function goToScreen(screenName) {
-        var targetScreen = screens[screenName];
+    function goToScreen(targetScreenName) {
+        var targetScreen = screens[targetScreenName];
 
         if (!targetScreen) {
-            throw new ReferenceError('yath: try to go to screen "' + screenName + '", which is not found.');
+            throw new ReferenceError('yath: try to go to screen "' + targetScreenName + '", which is not found.');
         }
 
         var callbackData = {
             game: game,
-            screenName: screenName,
+            screenName: targetScreenName,
             screen: targetScreen,
         };
 
@@ -32,7 +32,7 @@ function yath(container, options) {
             }
         }
 
-        visitedScreensTracker[screenName]++;
+        visitedScreensTracker[targetScreenName]++;
 
         targetScreen.classList.add('yathScreen--visible');
     }
