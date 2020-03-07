@@ -5,7 +5,7 @@ function yath(container, options) {
     var onScreenChange = ensuredOptions.onScreenChange || function() {};
 
     var screens = {};
-    var visitedScreensTracker = {};
+    var history = {};
 
     function goToScreen(targetScreenName) {
         var targetScreen = screens[targetScreenName];
@@ -32,17 +32,23 @@ function yath(container, options) {
             }
         }
 
-        visitedScreensTracker[targetScreenName]++;
+        history[targetScreenName]++;
 
         targetScreen.classList.add('yathScreen--visible');
     }
 
     function getScreenVisits(screenName) {
-        return visitedScreensTracker[screenName];
+        return history[screenName];
     }
 
     function hasVisitedScreen(screenName) {
         return getScreenVisits(screenName) > 0;
+    }
+
+    function resetHistory() {
+        Object.keys(history).forEach(function(screenName) {
+            history[screenName] = 0;
+        });
     }
 
     var inventoryItems = {};
@@ -75,6 +81,10 @@ function yath(container, options) {
         return inventoryItems[itemName];
     }
 
+    function resetInventory() {
+        inventoryItems = {};
+    }
+
     function getAllItems() {
         return Object.keys(inventoryItems).map(function(itemName) {
             return { itemName: itemName, total: inventoryItems[itemName] };
@@ -89,10 +99,12 @@ function yath(container, options) {
             addItem: addItem,
             removeItem: removeItem,
             getAllItems: getAllItems,
+            reset: resetInventory,
         },
         goToScreen: goToScreen,
         getScreenVisits: getScreenVisits,
         hasVisitedScreen: hasVisitedScreen,
+        resetHistory: resetHistory,
     };
     
     // Init DOM screens
@@ -105,7 +117,7 @@ function yath(container, options) {
         screen.classList.add('yathScreen');
         
         screens[screenName] = screen;
-        visitedScreensTracker[screenName] = 0;
+        history[screenName] = 0;
 
         screen.removeAttribute('data-yath-screen');
     }
