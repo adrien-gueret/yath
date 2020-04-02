@@ -28,6 +28,14 @@ html, body {
     animation: slideIn 200ms 1 ease-in;
 }
 
+.yathImage {
+    display: block;
+    border: 1px solid #d3d3d3;
+    margin: 16px auto;
+    padding: 3px;
+    max-width: 100%;
+}
+
 .yathScreen nav button {
     font-size: 1rem;
     margin: 10px;
