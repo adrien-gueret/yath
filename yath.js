@@ -7,6 +7,16 @@ function yath(container, options) {
     var screens = {};
     var history = {};
 
+    function forEachScreens(callback) {
+        for (var screenName in screens) {
+            callback(screens[screenName]);
+        };
+    }
+
+    function removeTargetFromDom(e) {
+        e.target.parentNode.removeChild(e.target);
+    }
+
     function goToScreen(targetScreenName) {
         var targetScreen = screens[targetScreenName];
 
@@ -24,16 +34,20 @@ function yath(container, options) {
             return;
         }
 
-        for (var screenName in screens) {
-            var screen = screens[screenName];
-
+        forEachScreens(function(screen) {
             if (screen !== targetScreen && screen.classList.contains('yathScreen--visible')) {
+                screen.addEventListener('transitionend', removeTargetFromDom, {
+                    capture: false,
+                    once: true,
+                    passive: true,
+                });
                 screen.classList.remove('yathScreen--visible');
             }
-        }
+        });
 
         history[targetScreenName]++;
 
+        gameContainer.appendChild(targetScreen);
         targetScreen.classList.add('yathScreen--visible');
     }
 
@@ -178,6 +192,10 @@ function yath(container, options) {
 
         goToElement.removeAttribute('data-yath-go-to');
     }
+
+    forEachScreens(function(screen) {
+        removeTargetFromDom({ target: screen });
+    });
 
     return game;
 }
