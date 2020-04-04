@@ -1,5 +1,7 @@
 function yath(container, options) {
     var gameContainer = container || document.body;
+    gameContainer.style.setProperty('display', 'none');
+
     var ensuredOptions = options || {};
     var onClickCallbacks = ensuredOptions.onClickCallbacks || {};
     var onScreenChange = ensuredOptions.onScreenChange || function() {};
@@ -196,6 +198,8 @@ function yath(container, options) {
     forEachScreens(function(screen) {
         removeTargetFromDom({ target: screen });
     });
+
+    gameContainer.style.removeProperty('display');
 
     return game;
 }
