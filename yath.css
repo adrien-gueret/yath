@@ -44,7 +44,7 @@ html, body {
     background: white;
     color: #63b5c8;
     padding: 20px;
-   transition: background 200ms, color 200ms;
+    transition: background 200ms, color 200ms;
 }
 
 .yathScreen nav button:hover {

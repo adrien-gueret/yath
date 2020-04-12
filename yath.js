@@ -15,8 +15,8 @@ function yath(container, options) {
         };
     }
 
-    function removeTargetFromDom(e) {
-        e.target.parentNode.removeChild(e.target);
+    function removeFromDom(element) {
+        element.parentNode.removeChild(element);
     }
 
     function goToScreen(targetScreenName) {
@@ -38,7 +38,9 @@ function yath(container, options) {
 
         forEachScreens(function(screen) {
             if (screen !== targetScreen && screen.classList.contains('yathScreen--visible')) {
-                screen.addEventListener('transitionend', removeTargetFromDom, {
+                screen.addEventListener('transitionend', function() {
+                    removeFromDom(screen);
+                }, {
                     capture: false,
                     once: true,
                     passive: true,
@@ -195,9 +197,7 @@ function yath(container, options) {
         goToElement.removeAttribute('data-yath-go-to');
     }
 
-    forEachScreens(function(screen) {
-        removeTargetFromDom({ target: screen });
-    });
+    forEachScreens(removeFromDom);
 
     gameContainer.style.removeProperty('display');
 
