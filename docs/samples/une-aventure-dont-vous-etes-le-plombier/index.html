@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161459909-2"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','UA-161459909-2',{send_page_view:false});;function t(n,p){gtag('config','UA-161459909-2',{page_title:n,page_path:p});}</script>
+        <meta charset="UTF-8">
+        <title>Une aventure dont vous êtes le plombier !</title>
+        <style data-meta="yath">body,html{background-color:#e3e3e3;margin:0;padding:0;font-size:1.3rem}.yathScreen{position:fixed;top:5%;right:5%;bottom:5%;left:5%;padding:5%;overflow:auto;background-color:#fff;border-radius:5px;border:1px solid #d3d3d3;pointer-events:none;transform:translateX(-100vw);transition:transform .2s;animation:none}.yathScreen--visible{pointer-events:auto;transform:translateX(0);animation:slideIn .2s 1 ease-in}.yathImage{display:block;border:1px solid #d3d3d3;margin:16px auto;padding:3px;max-width:100%}.yathScreen nav button{font-size:1rem;margin:10px;border:2px solid #63b5c8;border-radius:3px;background:#fff;color:#63b5c8;padding:20px;transition:background .2s,color .2s}.yathScreen nav button:hover{color:#fff;background:#63b5c8}.yathScreen nav button:active{background:#6d91c8}.yathClickable:not(button):not(input){cursor:pointer;color:#1245ed}.yathClickable:not(button):not(input):hover{text-decoration:underline}@keyframes slideIn{from{transform:translateX(100vw)}to{transform:translateX(0)}}</style>
+        <style data-meta="custom-css">@import url('https://fonts.googleapis.com/css?family=Baloo+2&display=swap');
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #dfd451 white;
+}
+
+*::-webkit-scrollbar {
+  width: 20px;
+}
+*::-webkit-scrollbar-track {
+  background: white;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #dfd451;
+  border-radius: 20px;
+  border: 6px solid white;
+}
+
+body, html {
+    font-family: 'Baloo 2', cursive;
+    background-color: #dfd451;
+    background-image:linear-gradient(90deg, rgba(255,255,255,.3), rgba(255,255,255,.7)),repeating-linear-gradient(135deg, transparent, transparent 35px, rgba(255,255,255,.5) 10px, rgba(255,255,255,.5) 65px);
+    width: 100vw;
+    height: 100vh;
+}
+
+.yathScreen {
+   border: 0;
+   border-radius: 0;
+   top: 0;
+   bottom: 0;
+   padding: 1% 5%;
+   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+   background-image: url(https://res.cloudinary.com/yath/image/upload/v1586028984/une-aventure-dont-vous-etes-le-plombier/background.png);
+   background-position: center;
+   background-attachment: local;
+}
+
+.yathScreen nav button {
+   border-radius: 5px;
+   color: #000;
+   border-color: #000;
+   transition: all 0.3s ease 0s;
+   font-family: inherit;
+   outline: none;
+}
+
+.yathScreen nav button:hover {
+    color: #000;
+    border-color: #dfd451;
+    background-color: #dfd451;
+}
+
+.yathScreen nav button:active {
+   background-color: #f1ecab;
+}
+
+.yathScreen nav button:focus {
+   background-color: #f1ecab;
+}
+
+.yathImage {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  width: 480px;
+}</style>
+        <script>function yath(t,e){function n(t){for(var e in f)t(f[e])}function r(t){t.parentNode.removeChild(t)}function a(t){var e=f[t];if(!e)throw new ReferenceError('yath: try to go to screen "'+t+'", which is not found.');!1!==d({game:v,screenName:t,screen:e})&&(n(function(t){t!==e&&t.classList.contains("yathScreen--visible")&&(t.addEventListener("transitionend",function(){r(t)},{capture:!1,once:!0,passive:!0}),t.classList.remove("yathScreen--visible"))}),y[t]++,s.appendChild(e),e.classList.add("yathScreen--visible"))}function o(t){return y[t]}function i(t){return h[t]||0}function c(t){return i(t)>0}var s=t||document.body;s.style.setProperty("display","none");for(var u=e||{},l=u.onClickCallbacks||{},d=u.onScreenChange||function(){},f={},y={},h={},v={inventory:{countItem:i,hasItem:c,addItem:function(t,e){return c(t)||(h[t]=0),h[t]+=e||1,h[t]},removeItem:function(t,e){return c(t)||(h[t]=0),h[t]=Math.max(h[t]-(e||1),0),h[t]},getAllItems:function(){return Object.keys(h).map(function(t){return{itemName:t,total:h[t]}})},reset:function(){h={}}},goToScreen:a,getScreenVisits:o,hasVisitedScreen:function(t){return o(t)>0},resetHistory:function(){Object.keys(y).forEach(function(t){y[t]=0})}},m=s.querySelectorAll("[data-yath-screen]"),p=0,g=m.length;p<g;p++){var b=m[p],k=b.getAttribute("data-yath-screen");b.classList.add("yathScreen"),f[k]=b,y[k]=0,b.removeAttribute("data-yath-screen")}for(var S=Object.keys(l).reduce(function(t,e){return t[e]=l[e],t},{}),A=s.querySelectorAll("[data-yath-onclick]"),L=0,C=A.length;L<C;L++){var I=A[L],P=I.getAttribute("data-yath-onclick");I.classList.add("yathClickable"),I.addEventListener("click",function(t){return function(e){var n=S[t];if(!n)return!0;!1===n(v,e)&&(e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation())}}(P)),I.removeAttribute("data-yath-onclick")}for(var E=s.querySelectorAll("[data-yath-go-to]"),j=0,q=E.length;j<q;j++){var w=E[j],k=w.getAttribute("data-yath-go-to");w.classList.add("yathClickable"),w.addEventListener("click",function(t){return function(e){e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation(),a(t)}}(k)),w.removeAttribute("data-yath-go-to")}return n(r),s.style.removeProperty("display"),v}</script>
+    </head>
+    <body style="display:none;">
+        
+         <section data-yath-screen="d1457710-355e-11ea-ae4d-fdc84c351402">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586112688/une-aventure-dont-vous-etes-le-plombier/title.png" alt="" />
+            <div><p>Soyez heureux, chers joueurs (ou chères joueuses !) car, pour votre plus grand plaisir, la princesse du royaume Champignon, Peach, a renouvelé auprès de Bowser son abonnement d&#x27;enlèvements (pour trois enlèvements, le quatrième est offert !).</p><p>&quot;Qu&#x27;est-ce qu&#x27;il faut pas faire pour faire plaisir à Nintendo !&quot; soupire Peach.</p><p>Voilà justement Bowser qui arrive pour la kidnapper, alors qu&#x27;elle a tout juste le temps d&#x27;envoyer sa lettre de demande de secours à Mario.</p><p>Maintenant que vous connaissez l&#x27;histoire, il ne vous reste plus qu&#x27;à choisir avec quel personnage vous vivrez cette extraordinaire et génialissime aventure ! Je vous conseille de commencer par Mario, puis de continuer avec Luigi, de poursuivre avec Wario et de conclure par Yoshi.</p><p>... Bon, pour le moment, seule l&#x27;aventure de Mario est disponible, mais vous n&#x27;allez pas déjà commencer à m&#x27;embêter, hein ?</p></div>
+            
+            <nav><button data-yath-go-to="26d797d0-355f-11ea-ae4d-fdc84c351402">Jouer avec Mario</button></nav>
+        </section>
+        
+         <section data-yath-screen="26d797d0-355f-11ea-ae4d-fdc84c351402">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586115067/une-aventure-dont-vous-etes-le-plombier/w42rhgfhr3e9q1kku2le.png" alt="" />
+            <div><p>Vous vous baladez tranquillement dans les champs du royaume Champignon quand Lakitu arrive pour vous donner le message de Peach.<br/>Après un long soupir de lassitude, vous courez pour aller sauver Peach des griffes de Bowser, en jetant par-dessus votre épaule la lettre de la prisonnière que vous avez à peine lue.</p><p>Vous courez déjà depuis une bonne demi-heure quand votre chemin se divise en trois. Où allez-vous vous rendre ?</p></div>
+            
+            <nav><button data-yath-go-to="d4a0da00-3601-11ea-b7d5-c579c65ed020">À gauche, vers Square Tuyau, pour emprunter un raccourci</button><button data-yath-go-to="1a2ff0e0-3604-11ea-b7d5-c579c65ed020">Tout droit, tout simplement, pour être le moins original</button><button data-yath-go-to="38121c00-3578-11ea-a80e-eb180b2deed3">À droite, vers la pizzeria du coin, pour manger un morceau</button></nav>
+        </section>
+        
+         <section data-yath-screen="38121c00-3578-11ea-a80e-eb180b2deed3">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586198864/une-aventure-dont-vous-etes-le-plombier/ounbzkw5ilckxhhifw9s.png" alt="" />
+            <div><p>Après quelques minutes de marche, vous arrivez affamé devant la Pizzeria del Koopa. </p><p>La file d&#x27;attente est plutôt longue. La réputation du restaurant est telle que tout un tas de Toads fait en effet la queue.<br/>Heureusement, vous êtes Mario, le héros du royaume. À ce titre, vous avez un passe-droit et pouvez passer devant tout le monde, sans aucun scrupule.</p><p>Que voulez-vous commander ?</p></div>
+            
+            <nav><button data-yath-go-to="dec78a50-357b-11ea-a80e-eb180b2deed3">Une 4 fromages</button><button data-yath-go-to="dec78a50-357b-11ea-a80e-eb180b2deed3">Une Margherita</button><button data-yath-go-to="e5d23540-3600-11ea-b7d5-c579c65ed020">Un sauté de porc agrémenté d'une sauce au poivre accompagné de ses pommes de terre sautées</button><button data-yath-go-to="59d30ea0-3602-11ea-b7d5-c579c65ed020">Rien</button></nav>
+        </section>
+        
+         <section data-yath-screen="dec78a50-357b-11ea-a80e-eb180b2deed3">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587676373/une-aventure-dont-vous-etes-le-plombier/ofblito06uosxv9uukfr.png" alt="" />
+            <div><p>La pizza est vraiment excellente, vous prenez tout votre temps pour bien l&#x27;apprécier. La base tomate est épicée comme il faut et la cuisson de la pâte est parfaite.</p><p>Elle manque peut-être un peu de tranches de jambon ou de champignons, mais en même temps si vous en vouliez il fallait prendre une autre recette... Une Reine par exemple !</p><p>Après ce copieux repas, vous vous rendez compte de quelque chose d&#x27;effroyable...</p><p>Vous avez complètement oublié Peach !</p><p>Pour rattraper le temps perdu, vous n&#x27;avez d&#x27;autre choix que de vous rendre au Square Tuyau pour emprunter un raccourci.</p></div>
+            
+            <nav><button data-yath-go-to="d4a0da00-3601-11ea-b7d5-c579c65ed020">Continuer vers Square Tuyau</button></nav>
+        </section>
+        
+         <section data-yath-screen="e5d23540-3600-11ea-b7d5-c579c65ed020">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586199939/une-aventure-dont-vous-etes-le-plombier/f73rcxxoavc24qfinlil.png" alt="" />
+            <div><p>Mais bien sûr ! Et pourquoi pas du homard et du caviar, tant que vous y êtes ?</p><p>Alors c&#x27;est bon, on est le héros du Royaume Champignon, alors on ne se prend pas pour n&#x27;importe qui, hein ?</p><p>Vous êtes dans une pizzeria, pas dans un restaurant de luxe, merci de rester humble !</p><p>Alors prenez une pizza et arrêtez de faire votre difficile, non mais !</p></div>
+            
+            <nav><button data-yath-go-to="dec78a50-357b-11ea-a80e-eb180b2deed3">Une Margherita</button><button data-yath-go-to="dec78a50-357b-11ea-a80e-eb180b2deed3">Une 4 fromages</button></nav>
+        </section>
+        
+         <section data-yath-screen="d4a0da00-3601-11ea-b7d5-c579c65ed020">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586203164/une-aventure-dont-vous-etes-le-plombier/i8ho6zutk7yyr28ncqyy.png" alt="" />
+            <div><p>Déterminé à gagner du temps, vous vous dirigez vers Square Tuyau afin de pouvoir emprunter un de ses fameux tuyaux téléporteurs.</p><p>Malheureusement, vous vous êtes perdu en chemin : une autre demi-heure vient de s&#x27;écouler pour rien...</p><p>De plus, il y a un monde fou à Square Tuyau, la file d&#x27;attente est interminable. À ce rythme, vouloir prendre un raccourci va vous faire perdre énormément de temps !</p><p>Il faut prendre une décision, et vite !</p></div>
+            
+            <nav><button data-yath-go-to="1f6a3b40-36ce-11ea-858d-e5fa992a2a70">Vous faites la queue, comme tout le monde</button><button data-yath-go-to="448aee60-36ce-11ea-858d-e5fa992a2a70">Vous bousculez tout le monde en prétextant une princesse à sauver</button></nav>
+        </section>
+        
+         <section data-yath-screen="59d30ea0-3602-11ea-b7d5-c579c65ed020">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586987257/une-aventure-dont-vous-etes-le-plombier/kst4hmx9gzr76p9f7hze.png" alt="" />
+            <div><p>...</p><p>Laissez-moi résumer la situation...</p><p>Vous avez fait le choix de vous rendre dans une pizzeria. Vous passez devant tout le monde sans aucune gêne.<br/>Et finalement vous ne voulez rien manger ?!</p><p>Cela vous amuse de perdre du temps ? Je vous rappelle que vous avez une princesse à aller sauver !</p><p>Alors passez vite votre commande, on n&#x27;a pas que ça à faire !</p><p></p></div>
+            
+            <nav><button data-yath-go-to="dec78a50-357b-11ea-a80e-eb180b2deed3">Une 4 fromages</button><button data-yath-go-to="dec78a50-357b-11ea-a80e-eb180b2deed3">Une Margherita</button><button data-yath-go-to="e5d23540-3600-11ea-b7d5-c579c65ed020">Un sauté de porc agrémenté d'une sauce au poivre accompagné de ses pommes de terre sautées</button><button data-yath-go-to="6987a300-3603-11ea-b7d5-c579c65ed020">Vraiment rien, allons chercher Bowser plutôt</button></nav>
+        </section>
+        
+         <section data-yath-screen="6987a300-3603-11ea-b7d5-c579c65ed020">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586617651/une-aventure-dont-vous-etes-le-plombier/uayvdwlk3rkhvsyubf0z.png" alt="" />
+            <div><p>Vous voilà sur un chemin cahoteux qui mène au château de Bowser. Plusieurs Goombas montent la garde et des Paratroopas surveillent les cieux.<br/>Cela ne va pas être simple d&#x27;entrer dans le château sans se faire remarquer...</p><p>Quelle stratégie adoptez-vous ?</p></div>
+            
+            <nav><button data-yath-go-to="55a33cd0-3b82-11ea-9aeb-93c65e7da706">Vous avancez tranquillement, au calme, l'air de rien</button><button data-yath-go-to="0cdb9260-3b8f-11ea-9aeb-93c65e7da706">Vous tentez une infiltration en passant derrière les rochers</button></nav>
+        </section>
+        
+         <section data-yath-screen="1a2ff0e0-3604-11ea-b7d5-c579c65ed020">
+            
+            <div><p>Vous avancez à bon rythme sous le regard curieux des nuages et des collines, mais l&#x27;ennui arrive bien vite : vous avez tellement l&#x27;habitude de suivre cette route...</p><p>Au loin, vous voyez un Goomba et un Koopa qui parlent vivement. Intrigué, et pour fuir un peu la lassitude il faut bien se l&#x27;avouer, vous vous approchez d&#x27;eux doucement en vous cachant derrière un buisson.</p><p>Que faites-vous ?</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586458978/une-aventure-dont-vous-etes-le-plombier/zxs2fcf8dfryhxwdav1p.png" alt="" />
+            <nav><button data-yath-go-to="e198cd10-36cb-11ea-858d-e5fa992a2a70">Vous les écoutez attentivement</button><button data-yath-go-to="9c922340-36cd-11ea-858d-e5fa992a2a70">Vous les attaquez brutalement</button></nav>
+        </section>
+        
+         <section data-yath-screen="e198cd10-36cb-11ea-858d-e5fa992a2a70">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586458978/une-aventure-dont-vous-etes-le-plombier/zxs2fcf8dfryhxwdav1p.png" alt="" />
+            <div><p>- Et donc, dit le Goomba, c&#x27;est comme ça que je suis entrée dans l&#x27;armée de notre roi Bowser.<br/>- Tu as participé à beaucoup de guerres, alors ? demanda le Koopa, intéressé.<br/>- Oh que oui ! J&#x27;ai réussi à éviter les attaques de Mario, je suis l&#x27;un des rares à avoir survécu !<br/>- Mon père n&#x27;a pas eu la même chance, il a été délogé de sa carapace et écrasé sans ménagement...<br/>- C&#x27;est pour ça que tu dois t&#x27;enrôler dans notre armée ! Pour te venger !<br/>- Je ne sais pas, ça a l&#x27;air dangereux quand même.<br/>- Tu sais, les soldats, ça plait vachement aux filles...<br/><br/>Cette discussion commence sérieusement à vous ennuyer. Vous surgissez du buisson, prêt à les écraser.</p></div>
+            
+            <nav><button data-yath-go-to="9c922340-36cd-11ea-858d-e5fa992a2a70">À l'attaque !</button></nav>
+        </section>
+        
+         <section data-yath-screen="9c922340-36cd-11ea-858d-e5fa992a2a70">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586542020/une-aventure-dont-vous-etes-le-plombier/t6z9jbq1zy34nssrr0mx.png" alt="" />
+            <div><p>Vous surgissez du buisson, faisant sursauter de surprise vos deux futures victimes. Vous vous apprêtez à lancer un cri de guerre pour marquer le coup, lorsque vous réalisez que le Goomba est déjà parti au loin.<br/>Le Koopa, resté sur place, est tout aussi étonné que vous :</p><p>- Hé bien, il est sacrément rapide celui-là... dit-il. Je comprends mieux comment il s&#x27;est débrouillé pour survivre aussi longtemps...</p><p>Il vous lance alors un regard résigné :</p><p>- Bon, tu vas faire quoi de moi, maintenant, Mario ? M&#x27;écraser ? Me balancer ? Voler ma carapace comme tu as fait à mon pauvre père ?</p><p>Le Koopa se mit alors à pleurnicher en reniflant bruyamment. C&#x27;était à la fois émouvant et dégoûtant.<br/>Vous décidez par conséquent de le laisser partir.</p><p>Vous avez assez perdu de temps comme ça, il faut aller retrouver Bowser et la princesse !</p></div>
+            
+            <nav><button data-yath-go-to="6987a300-3603-11ea-b7d5-c579c65ed020">Continuez votre chemin</button></nav>
+        </section>
+        
+         <section data-yath-screen="1f6a3b40-36ce-11ea-858d-e5fa992a2a70">
+            
+            <div><p>Vous décidez de prendre votre mal en patience. Ce n&#x27;est pas parce que vous êtes un héros que vous êtes au-dessus des autres !<br/>Et puis la princesse Peach peut attendre : elle a l&#x27;habitude d&#x27;être chez Bowser, après tout.</p><p>Vous attendez donc plusieurs minutes et, une fois un Bob-Omb aspiré vers le Port-Lacanaïe, vous arrivez devant le propriétaire des lieux, un dénommé Piper. Il vous prévient que le service de téléportation n&#x27;est pas gratuit : son prix dépend de votre destination.</p><p>Il ne vous reste plus qu&#x27;à choisir où aller !<br/><br/></p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586455585/une-aventure-dont-vous-etes-le-plombier/baxluxvbxcztq0vyktnt.png" alt="" />
+            <nav><button data-yath-go-to="1a2ff0e0-3604-11ea-b7d5-c579c65ed020">Vers la Plaine Beignet (5 pièces)</button><button data-yath-go-to="1fcd7670-392a-11ea-9191-19ccc69b0a00">Vers la Vallée de Bowser (999 pièces)</button></nav>
+        </section>
+        
+         <section data-yath-screen="448aee60-36ce-11ea-858d-e5fa992a2a70">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586370087/une-aventure-dont-vous-etes-le-plombier/ffygzgkfkb41iwykc2db.png" alt="" />
+            <div><p>- Hé ho, doucement là ! s&#x27;énerve un Toad.<br/>- T&#x27;as p&#x27;tet une princesse à sauver mon gars, continue un Pianta. Mais j&#x27;étais là avant, alors t&#x27;attends !<br/>- Et t&#x27;as toujours quelqu&#x27;un à aider de toute façon, réplique un Bob-Omb. C&#x27;est louche, tout de même !</p><p>Ce brouhaha général vous retarde encore plus... et cela vous agace au plus haut point.<br/>Excédé, vous entrez dans un tuyau de force, sans même payer !</p><p>Dans votre précipitation, vous empruntez un tuyau un peu au hasard...<br/>Vous avez tout juste le temps de lire &quot;<em>Destination : Plaine Beignet</em>&quot; que vous êtes déjà téléporté à destination.</p><p>La Plaine Beignet, donc... Pour l&#x27;avoir parcouru à de nombreuses reprises, vous connaissez très bien cet endroit.</p><p>Ce n&#x27;est pas très loin du château de Bowser, heureusement !</p></div>
+            
+            <nav><button data-yath-go-to="1a2ff0e0-3604-11ea-b7d5-c579c65ed020">Commencez l'exploration de la plaine</button></nav>
+        </section>
+        
+         <section data-yath-screen="1fcd7670-392a-11ea-9191-19ccc69b0a00">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586456674/une-aventure-dont-vous-etes-le-plombier/qoo1nnb252erigcxurzb.png" alt="" />
+            <div><p>999 pièces... C&#x27;est un coût assez élevé, même pour vous le grand Mario !</p><p>Vous essayez de négocier avec Piper, mais rien n&#x27;y fait : le prix est justifié par les risques encourus pour avoir installé le système de tuyaux non loin de chez Bowser.</p><p>Résigné, vous donnez donc 199 pièces bleues et 2 pièces rouges, soit la totalité de votre bourse.</p><p>&quot;Le Royaume Champignon devrait instaurer des billets, pensez-vous alors. Ça serait plus pratique...&quot;</p><p>C&#x27;est avec cette réflexion en tête que vous vous dirigez vers le tuyau.</p></div>
+            
+            <nav><button data-yath-go-to="6987a300-3603-11ea-b7d5-c579c65ed020">Empruntez le tuyau</button></nav>
+        </section>
+        
+         <section data-yath-screen="55a33cd0-3b82-11ea-9aeb-93c65e7da706">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586618975/une-aventure-dont-vous-etes-le-plombier/n9vh0menrcawlubbzzww.png" alt="" />
+            <div><p>Votre arrivée soudaine, couplée à votre désinvolture vis-à-vis de la situation, surprend les Goombas qui ne réagissent pas assez vite pour vous stopper. Les Paratroopas, quant à eux, sont trop occupés à scruter les cieux et ne vous ont même pas remarqué !</p><p>Vous arrivez donc tranquillement aux portes du château de Bowser, en saluant au passage un garde Koopa, qui rend votre salut, ébahi.</p></div>
+            
+            <nav><button data-yath-go-to="f2siG711">Vous entrez dans le château</button></nav>
+        </section>
+        
+         <section data-yath-screen="0cdb9260-3b8f-11ea-9aeb-93c65e7da706">
+            
+            <div><p>Vous vous éloignez du chemin et passez derrière un rocher. Malheureusement, il se trouve qu&#x27;un garde Koopa - qui ne fait pas son boulot - s&#x27;y cache également pour faire un petit somme...</p><p>Surpris par votre présence, ce dernier se met à crier de panique.<br/>Les Paratroopas rappliquent alors et des Goombas vous encerclent.</p><p>Pour une entrée discrète, c&#x27;est raté...</p><p>Quel est le plan, maintenant que vous êtes cerné ?</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586620717/une-aventure-dont-vous-etes-le-plombier/md6qkqxniv4tndkvalno.png" alt="" />
+            <nav><button data-yath-go-to="7kMfFGs7">Vous tentez un sprint surprise</button><button data-yath-go-to="wJUtIyIB">Vous vous laissez capturer</button></nav>
+        </section>
+        
+         <section data-yath-screen="213b54c0-3b8f-11ea-9aeb-93c65e7da706">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586693465/une-aventure-dont-vous-etes-le-plombier/cxbh9uuxpvssgnoatxjw.png" alt="" />
+            <div><p>Vous êtes dans le hall principal du château de Bowser.</p><p>En face de vous se dressent trois grosses portes. Elles sont toutes strictement identiques.</p><p>Quelle porte empruntez-vous ?</p></div>
+            
+            <nav><button data-yath-go-to="575fed40-435f-11ea-9593-ff64ebe435f4">Celle de gauche</button><button data-yath-go-to="LHz8Jinx">Celle du milieu</button><button data-yath-go-to="NoGuIzHm">Celle de droite</button></nav>
+        </section>
+        
+         <section data-yath-screen="7kMfFGs7">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586631076/une-aventure-dont-vous-etes-le-plombier/e32rwli7lz3ieem5u8us.png" alt="" />
+            <div><p>L&#x27;idée de vous rendre vous horripile. Vous êtes Mario après tout, ce ne sont pas quelques sbires de Bowser qui vont vous arrêter, quand même !</p><p>Galvanisé par cette réflexion, vous piquez un sprint en sautant par-dessus les Goombas qui vous font face. Les pauvres créatures n&#x27;ont pas le temps de réagir que vous êtes déjà loin.</p><p>Les Paratroopas se lancent à votre poursuite, mais vous êtes très rapide et avez déjà atteint la porte du château de Bowser... </p><p></p></div>
+            
+            <nav><button data-yath-go-to="f2siG711">Entrez dans le château</button></nav>
+        </section>
+        
+         <section data-yath-screen="wJUtIyIB">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586792650/une-aventure-dont-vous-etes-le-plombier/x08ge3k6gbchqdjlcxrn.png" alt="" />
+            <div><p>Vous vous laissez donc capturer par les sbires de Bowser, la mort dans l&#x27;âme...<br/>Le point positif de tout ça, c&#x27;est qu&#x27;ils vous emmènent d&#x27;eux-mêmes dans le château de leur maître. Ce n&#x27;est pas si mal, en fin de compte !</p><p>Vous êtes donc désormais à l&#x27;intérieur du repère du roi des Koopas, mais... vous êtes enfermé dans les cachots. Votre prison n&#x27;est pas franchement hospitalière : pour seules décorations, un tabouret qui se trouve dans un coin et un poster de Bowser qui commence à se décoller sur l&#x27;un des murs.</p><p>La seule fenêtre de la pièce est condamnée par des barreaux. La porte de votre cellule, quant à elle, semble faite d&#x27;un acier indestructible.</p><p>Que faites-vous ?</p></div>
+            
+            <nav><button data-yath-go-to="meuXdih9">Vous examinez la porte</button><button data-yath-go-to="MC0JQNSk">Vous inspectez le tabouret</button><button data-yath-go-to="bvdzH5lX">Vous admirez le poster</button><button data-yath-go-to="nxcr_mX1">Vous vérifiez la fenêtre</button></nav>
+        </section>
+        
+         <section data-yath-screen="fdUIAbLC">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586633916/une-aventure-dont-vous-etes-le-plombier/e3fdxor0tmchfyhtzxmk.png" alt="" />
+            <div><p>Vous avez beau y mettre toutes vos forces, la gigantesque porte ne cède pas. Elle est belle et bien fermée... et vous restez bêtement coincé devant.</p><p>Les sbires de Bowser ont eu le temps de vous rejoindre : vous n&#x27;avez plus qu&#x27;à vous rendre...</p></div>
+            
+            <nav><button data-yath-go-to="wJUtIyIB">Vous vous faites capturer</button></nav>
+        </section>
+        
+         <section data-yath-screen="LTXhwirJ">
+            
+            <div><p>Votre regard est directement attiré par le paillasson &quot;Bienvenue&quot;, trônant fièrement au pas de la gigantesque porte.</p><p>Vous le soulevez rapidement pour découvrir, en-dessous, une grosse clé en fer un peu rouillée. Serait-il possible que... ?</p><p>Bingo ! Il s&#x27;agit effectivement de la clé de la porte ! Vous parvenez ainsi à l&#x27;ouvrir et à vous engouffrer dans le château. Vous refermez la porte derrière-vous en pensant bien à la verrouiller, vous assurant ainsi que les sbires de Bowser ne puissent pas vous suivre depuis l&#x27;extérieur.</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586684853/une-aventure-dont-vous-etes-le-plombier/xikoa35wdsfgffkvhczi.png" alt="" />
+            <nav><button data-yath-go-to="213b54c0-3b8f-11ea-9aeb-93c65e7da706">Vous commencez l'exploration du château</button></nav>
+        </section>
+        
+         <section data-yath-screen="f2siG711">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586633514/une-aventure-dont-vous-etes-le-plombier/mbikkduczsxozdx8vatg.png" alt="" />
+            <div><p>Vous poussez la porte du château, prêt à entrer... lorsque vous réalisez qu&#x27;elle est verrouillée.</p><p>Aïe, ce n&#x27;était pas prévu, ça... Ajoutez à cela que les sbires de Bowser se dirigent vers vous pour en découdre.</p><p>Que faire maintenant ?</p></div>
+            
+            <nav><button data-yath-go-to="fdUIAbLC">Vous tentez de forcer la porte</button><button data-yath-go-to="LTXhwirJ">Vous fouillez les alentours</button><button data-yath-go-to="wJUtIyIB">Vous vous laissez capturer</button></nav>
+        </section>
+        
+         <section data-yath-screen="575fed40-435f-11ea-9593-ff64ebe435f4">
+            
+            <div><p>Vous arrivez dans une salle qui contient une immense fosse remplie de lave. Des boules de feu en jaillissent quelquefois.</p><p>Un simple petit pont de bois passe au-dessus de ce lac de lave. Il semble un peu fragile...</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586984548/une-aventure-dont-vous-etes-le-plombier/n9z0dsspiv89zotia4id.png" alt="" />
+            <nav><button data-yath-go-to="213b54c0-3b8f-11ea-9aeb-93c65e7da706">Vous faites demi-tour</button><button data-yath-go-to="nmTAQIij">Vous avancez avec prudence</button></nav>
+        </section>
+        
+         <section data-yath-screen="lb5nzxn_">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586792666/une-aventure-dont-vous-etes-le-plombier/ktwrk0yuoun7gtrzigjw.png" alt="" />
+            <div><p>Vous tournez en rond dans votre cellule. Le tabouret est toujours dans son coin, et le poster de Bowser est plus fade que jamais.</p><p>La petite fenêtre laisse à peine passer le soleil à travers ses barreaux. Quant à la porte de la prison, elle semble toujours aussi indestructible qu&#x27;avant.</p><p>Que faites-vous ?</p></div>
+            
+            <nav><button data-yath-go-to="meuXdih9">Vous examinez la porte</button><button data-yath-go-to="MC0JQNSk">Vous inspectez le tabouret</button><button data-yath-go-to="bvdzH5lX">Vous admirez le poster</button><button data-yath-go-to="nxcr_mX1">Vous vérifiez la fenêtre</button></nav>
+        </section>
+        
+         <section data-yath-screen="meuXdih9">
+            
+            <div><p>Il s&#x27;agit effectivement d&#x27;une grosse porte.<br/>En acier.<br/>Bien solide.</p><p>Une grosse porte en acier bien solide comme il faut.</p><p>Et avec une toute petite serrure.</p><p>Il n&#x27;y a pas grand chose à faire ici, malheureusement...</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586792679/une-aventure-dont-vous-etes-le-plombier/my0uklqvkoj9drn2hj2o.png" alt="" />
+            <nav><button data-yath-go-to="lb5nzxn_">Vous revenez au centre de la cellule</button></nav>
+        </section>
+        
+         <section data-yath-screen="MC0JQNSk">
+            
+            <div><p>Il s&#x27;agit d&#x27;un tabouret ordinaire. Tout en bois, il semble vieux, peu confortable et assez fragile.</p><p>Il ne vous sera d&#x27;aucune aide, mieux vaut le laisser à sa place...</p><p></p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586792693/une-aventure-dont-vous-etes-le-plombier/hb9ythyzaquvomqguvmm.png" alt="" />
+            <nav><button data-yath-go-to="msx0AH3t">Vous vous asseyez sur le tabouret</button><button data-yath-go-to="lb5nzxn_">Vous revenez au centre de la cellule</button></nav>
+        </section>
+        
+         <section data-yath-screen="bvdzH5lX">
+            
+            <div><p>Drôle d&#x27;idée que de mettre un poster dans une cellule de prison... Le Bowser qui y est représenté semble vous fixer d&#x27;un regard moqueur, comme s&#x27;il savourait d&#x27;enfin vous voir enfermé dans son château.<br/><br/>Un coin du poster est légèrement décollé du mur.</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586792707/une-aventure-dont-vous-etes-le-plombier/ttciwdeka0vi6pqf5prs.png" alt="" />
+            <nav><button data-yath-go-to="hwb5-4op">Vous soulevez le poster</button><button data-yath-go-to="lb5nzxn_">Vous revenez au centre de la cellule</button></nav>
+        </section>
+        
+         <section data-yath-screen="nxcr_mX1">
+            
+            <div><p>La fenêtre de la prison est minuscule : même sans les barreaux, vous pourriez à peine y passer la tête !</p><p>En y regardant de plus près, vous constatez d&#x27;ailleurs une sorte de creux au niveau de la rambarde de la fenêtre, entre deux barreaux.</p><p></p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586792732/une-aventure-dont-vous-etes-le-plombier/ndga2znb5litc9z52ewv.png" alt="" />
+            <nav><button data-yath-go-to="CfX7f5aO">Vous regardez par la fenêtre</button><button data-yath-go-to="lb5nzxn_">Vous revenez au centre de la cellule</button></nav>
+        </section>
+        
+         <section data-yath-screen="gfxTifnX">
+            
+            <div><p>Vous pourriez arracher le poster, mais vous avez du savoir-vivre : vous le soulevez délicatement pour ne pas l&#x27;abîmer d&#x27;avantage.</p><p>Derrière ce poster... stupeur !</p><p>Une clé.</p><p>Derrière le poster se trouve en effet un petit espace de la taille d&#x27;une brique dans lequel se trouve une clé.<br/>Le mécanisme que vous avez activé à la fenêtre y est sûrement pour quelque chose...</p><p>Vous récupérez donc la clé. On ne sait jamais, dans une prison ça pourrait être utile.<br/><br/>On ne sait jamais.</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586858393/une-aventure-dont-vous-etes-le-plombier/duhfwppoc40fog8spbav.png" alt="" />
+            <nav><button data-yath-go-to="lb5nzxn_">Revenez au centre de la cellule</button></nav>
+        </section>
+        
+         <section data-yath-screen="dOYm_okh">
+            
+            <div><p>Il s&#x27;agit effectivement d&#x27;une grosse porte.<br/>En acier.<br/>Bien solide.</p><p>Une grosse porte en acier bien solide comme il faut.</p><p>Et avec une toute petite serrure.</p><p>... Une serrure ?!</p><p>Vous sortez de votre poche la clé que vous avez trouvée derrière le poster pour la tester aussitôt.</p><p>Bingo ! Cela fonctionne ! La porte s&#x27;ouvre et vous constatez qu&#x27;aucun garde ne se trouve derrière.<br/>Bowser a décidément beaucoup de progrès à faire sur les questions de sécurité...</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586955931/une-aventure-dont-vous-etes-le-plombier/pywybuw7wigew0rcyc19.png" alt="" />
+            <nav><button data-yath-go-to="213b54c0-3b8f-11ea-9aeb-93c65e7da706">Vous empruntez le couloir devant vous</button></nav>
+        </section>
+        
+         <section data-yath-screen="CfX7f5aO">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586868901/une-aventure-dont-vous-etes-le-plombier/wgbajvslswo0c3d89mvq.png" alt="" />
+            <div><p>Vous vous contorsionnez comme vous pouvez afin de pouvoir jeter un coup d’œil à travers les barreaux.</p><p>Il fait plutôt beau, dehors. Les gardes Paratroopas font leur ronde dans le ciel. En bas, les Goombas patrouillent en essayant tant bien que mal d&#x27;avoir l&#x27;air menaçant, sans tellement y parvenir.</p><p>Rien de bien intéressant, donc. Pour éviter un torticolis, il serait préférable que vous repreniez vos recherches pour sortir d&#x27;ici.</p></div>
+            
+            <nav><button data-yath-go-to="lb5nzxn_">Vous revenez au centre de la cellule</button></nav>
+        </section>
+        
+         <section data-yath-screen="msx0AH3t">
+            
+            <div><p>CRAC !</p><p>Il fallait s&#x27;y attendre : le pauvre tabouret n&#x27;a pas supporté votre poids et a perdu un de ses trois pieds... Il serait temps de penser à faire un régime, mon cher Mario !</p><p>Un peu penaud, vous regardez le misérable objet en vrac sur le sol. Peut-être que le pied cassé pourrait vous être utile, qui sait ?</p><p>Vous le récupérez, juste au cas où.</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586793445/une-aventure-dont-vous-etes-le-plombier/bldizsmsdxn04hhvogpc.png" alt="" />
+            <nav><button data-yath-go-to="lb5nzxn_">Revenez au centre de la cellule</button></nav>
+        </section>
+        
+         <section data-yath-screen="vK4yss5V">
+            
+            <div><p>Le malheureux tabouret est toujours en vrac sur le sol, brisé par votre surcharge pondérale.</p><p>Vous avez déjà récupéré un de ses trois pieds, il est temps de laisser ce pauvre objet tranquille, désormais.</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586793544/une-aventure-dont-vous-etes-le-plombier/ronqyz8bctsqxupgs2uf.png" alt="" />
+            <nav><button data-yath-go-to="lb5nzxn_">Vous revenez au centre de la cellule</button></nav>
+        </section>
+        
+         <section data-yath-screen="LiRTDNmB">
+            
+            <div><p>Le pied du tabouret entre parfaitement dans le creux de la rambarde de la fenêtre. En le plaçant, vous entendez un petit &quot;clic&quot; discret. De surprise, vous lâchez le pied qui tombe à travers la fenêtre.</p><p>&quot;Ouille !&quot; s&#x27;exclame un Goomba, plus bas.</p><p>Vous ne vous occupez guère de ce petit incident, préférant vous concentrer sur le &quot;clic&quot; que vous avez entendu : un mécanisme se serait-il enclenché ?</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586953726/une-aventure-dont-vous-etes-le-plombier/teb3hdefz0tykg2swrjc.png" alt="" />
+            <nav><button data-yath-go-to="lb5nzxn_">Vous revenez au centre de la cellule</button></nav>
+        </section>
+        
+         <section data-yath-screen="ZYtbU4v6">
+            
+            <div><p>La fenêtre de la prison est minuscule : même sans les barreaux, vous pourriez à peine y passer la tête !</p><p>En y regardant de plus près, vous constatez d&#x27;ailleurs une sorte de creux au niveau de la rambarde de la fenêtre, entre deux barreaux.</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586792732/une-aventure-dont-vous-etes-le-plombier/ndga2znb5litc9z52ewv.png" alt="" />
+            <nav><button data-yath-go-to="CfX7f5aO">Vous regardez par la fenêtre</button><button data-yath-go-to="LiRTDNmB">Vous placez le pied du tabouret dans le creux</button><button data-yath-go-to="lb5nzxn_">Vous revenez au centre de la cellule</button></nav>
+        </section>
+        
+         <section data-yath-screen="Bo4K0uB8">
+            
+            <div><p>La fenêtre de la prison est minuscule : même sans les barreaux, vous pourriez à peine y passer la tête !</p><p>Le creux au niveau de la rambarde de la fenêtre est bien entendu toujours là. Lorsque vous y avez placé le pied du tabouret, un mécanisme s&#x27;était activé... Mais où ?</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586792732/une-aventure-dont-vous-etes-le-plombier/ndga2znb5litc9z52ewv.png" alt="" />
+            <nav><button data-yath-go-to="CfX7f5aO">Vous regardez par la fenêtre</button><button data-yath-go-to="lb5nzxn_">Vous revenez au centre de la cellule</button></nav>
+        </section>
+        
+         <section data-yath-screen="hwb5-4op">
+            
+            <div><p>Vous pourriez arracher le poster, mais vous avez du savoir-vivre : vous le soulevez délicatement pour ne pas l&#x27;abîmer d&#x27;avantage.</p><p>Derrière ce poster... stupeur !</p><p>Rien du tout.</p><p>Une simple brique, certes plus claire que ses voisines, mais une brique malgré tout.<br/>Vous tapotez dessus en espérant que ça provoque quelque chose mais, même si ça semble sonner creux, rien ne se passe.</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586794602/une-aventure-dont-vous-etes-le-plombier/v9gspixywkixqxmp6nzg.png" alt="" />
+            <nav><button data-yath-go-to="lb5nzxn_">Vous revenez au centre de la cellule</button></nav>
+        </section>
+        
+         <section data-yath-screen="-_VloJs1">
+            
+            <div><p>Vous pourriez arracher le poster, mais vous avez du savoir-vivre : vous le soulevez délicatement pour ne pas l&#x27;abîmer d&#x27;avantage.</p><p>Derrière ce poster... stupeur !</p><p>Rien du tout.</p><p>Et pour cause : vous avez déjà récupéré la clé qui s&#x27;y trouvait. Vous vous attendiez à quoi ? Qu&#x27;il y ait un distributeur de clés derrière un poster d&#x27;une prison ?<br/>C&#x27;est déjà assez dingue que Bowser en ait caché une ici...</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586794602/une-aventure-dont-vous-etes-le-plombier/v9gspixywkixqxmp6nzg.png" alt="" />
+            <nav><button data-yath-go-to="lb5nzxn_">Revenez au centre de la cellule</button></nav>
+        </section>
+        
+         <section data-yath-screen="nmTAQIij">
+            
+            <div><p>Les pont tangue de manière vraiment inquiétante...</p><p>Les boules de feu surgissant du lac de lave vous frôlent à chaque pas. D&#x27;ailleurs, vers la moitié du parcours, l&#x27;une d&#x27;entre elles est passée tout près de votre visage, brûlant au passage le bout de votre moustache.</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586986580/une-aventure-dont-vous-etes-le-plombier/l5km14kda8tkdkonpyav.png" alt="" />
+            <nav><button data-yath-go-to="QzT4mLrj">Vous vous dépêchez de traverser le reste du pont</button><button data-yath-go-to="WHigTdSW">Vous continuez doucement votre progression</button></nav>
+        </section>
+        
+         <section data-yath-screen="LHz8Jinx">
+            
+            <div><p>Vous ouvrez avec appréhension la porte du centre.<br/>Derrière, vous y trouvez un terrible, un incroyable, un imposant, un extraordinaire, un gigantesque...</p><p>Escalier.</p><p>Un très grand escalier qu&#x27;il sera sans doute épuisant de monter, mais un simple escalier malgré tout.</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586983460/une-aventure-dont-vous-etes-le-plombier/c2o400mxrzr805tdqah2.png" alt="" />
+            <nav><button data-yath-go-to="IZ-bwLJR">Vous montez les marches</button><button data-yath-go-to="213b54c0-3b8f-11ea-9aeb-93c65e7da706">Vous faites demi-tour</button></nav>
+        </section>
+        
+         <section data-yath-screen="IZ-bwLJR">
+            
+            <div><p>Vous montez les marches une à une, d&#x27;un pas déterminé. L&#x27;escalier est vraiment immense, il semble infini, comme si des marches s&#x27;ajoutaient au fur et à mesure de votre progression.</p><p>Heureusement, ceci n&#x27;est qu&#x27;une impression et vous arrivez finalement tout en haut, face à une porte imposante, toute rouge. Elle ressemble beaucoup à une porte de boss...</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587063877/une-aventure-dont-vous-etes-le-plombier/lbe0aqdafkk6blqpvohy.png" alt="" />
+            <nav><button data-yath-go-to="FfZv1fFJR">Vous toquez à la porte</button><button data-yath-go-to="dgHcSXGtE">Vous entrez sans frapper</button></nav>
+        </section>
+        
+         <section data-yath-screen="NoGuIzHm">
+            
+            <div><p>Derrière la porte se trouve un très long couloir. Très silencieux et très sombre, il est visiblement vide...</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587046442/une-aventure-dont-vous-etes-le-plombier/upuwtn8ftumh4eald7yw.png" alt="" />
+            <nav><button data-yath-go-to="ldVlnEN42">Vous trouvez ça louche, mais continuez doucement</button><button data-yath-go-to="nGbLwbc7">Vous trouvez ça louche, mais continuez en courant</button><button data-yath-go-to="213b54c0-3b8f-11ea-9aeb-93c65e7da706">Vous trouvez ça louche, et faites demi-tour</button></nav>
+        </section>
+        
+         <section data-yath-screen="nGbLwbc7">
+            
+            <div><p>Vous inspirez profondément et commencez à piquer un sprint.</p><p>Tout à coup, le plafond semble s&#x27;effondrer pour vous écraser : des Thwomps !</p><p>Heureusement, vous courez déjà assez vite pour atteindre sain et sauf l&#x27;autre bout du couloir, avant que les Twhomps ne s&#x27;écrasent sur le sol.</p><p>- Ha zut, c&#x27;est raté... Oh je déteste quand ça rate ! gémit le plus proche de vous.</p><p>Vous l&#x27;ignorez complètement pour vous approcher de l&#x27;escalier imposant qui vous fait face.</p><p></p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587062235/une-aventure-dont-vous-etes-le-plombier/jfi9lojfg3nswk7aubfj.png" alt="" />
+            <nav><button data-yath-go-to="IZ-bwLJR">Vous grimpez à l'escalier</button><button data-yath-go-to="xvrZoTOvO">Vous faites demi-tour</button></nav>
+        </section>
+        
+         <section data-yath-screen="QzT4mLrj">
+            
+            <div><p>Vous commencez à courir pour atteindre le plus vite possible l&#x27;autre côté. Sous le rythme de vos pas, le pont tangue de plus en plus dangereusement...</p><p>Une boule de feu surgit et vous surprend dans votre course, vous obligeant à l&#x27;esquiver de justesse. Ce geste vous déséquilibre et vous trébuchez hors du pont.</p><p>Vous voyez le lac de lave se rapprocher de plus en plus à mesure que vous chutez, tandis que la chaleur se fait de plus en plus insupportable... jusqu&#x27;au moment fatal où vous plongez dans le magma.</p><p>Vous êtes mort.</p><p>Ce n&#x27;est pas une blague, vous êtes vraiment mort. Même Mario ne peut survivre dans un bassin de lave en fusion !</p><p>Vous n&#x27;aviez que deux façons de mourir dans ce jeu, et vous venez d&#x27;en trouver une. Bravo !<br/>Au moins, c&#x27;est une façon positive de voir les choses...</p><p>Bon, aller, je suis sympa. On va dire qu&#x27;il ne s&#x27;est rien passé, OK ?</p><p>Je vous ramène ni vu ni connu à l&#x27;entrée du château de Bowser. Que ça reste entre nous !</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587031034/une-aventure-dont-vous-etes-le-plombier/viiy6rhk5a9yrvweamp2.png" alt="" />
+            <nav><button data-yath-go-to="213b54c0-3b8f-11ea-9aeb-93c65e7da706">C'est bien gentil ça, merci !</button></nav>
+        </section>
+        
+         <section data-yath-screen="vpLg0Qf5">
+            
+            <div><p>Vous commencez à courir pour atteindre le plus vite possible l&#x27;autre côté. Sous le rythme de vos pas, le pont tangue de plus en plus dangereusement...</p><p>Une boule de feu surgit et vous surprend dans votre course, vous obligeant à l&#x27;esquiver de justesse. Ce geste vous déséquilibre et vous trébuchez hors du pont.</p><p>Vous voyez le lac de lave se rapprocher de plus en plus à mesure que vous chutez, tandis que la chaleur se fait de plus en plus insupportable... jusqu&#x27;au moment fatal où vous plongez dans le magma.</p><p>Vous êtes mort.</p><p>Mais en même temps, ce n&#x27;est pas une surprise, n&#x27;est-ce pas ? C&#x27;est la deuxième fois que vous faites la même erreur, n&#x27;allez pas dire que vous ne le cherchiez pas !</p><p>Vous vouliez voir si le jeu avait prévu le coup, je parie... Et bien oui, c&#x27;est prévu !<br/>Bon, ça serait méchant de vous punir pour votre curiosité, alors je vous laisse continuer l&#x27;aventure malgré tout... Allez, on n&#x27;a qu&#x27;à dire que vous avez réussi à traverser le pont et que vous êtes donc en face des escaliers.</p><p>Mais comme tout à l&#x27;heure, que ça reste entre nous, hein ?</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587031034/une-aventure-dont-vous-etes-le-plombier/viiy6rhk5a9yrvweamp2.png" alt="" />
+            <nav><button data-yath-go-to="IZ-bwLJR">Montez les escaliers</button></nav>
+        </section>
+        
+         <section data-yath-screen="WHigTdSW">
+            
+            <div><p>Vous continuez la traversée avec prudence, en posant délicatement les pieds l&#x27;un devant l&#x27;autre.</p><p>Les boules de feu continuent de surgir aléatoirement, mais votre rythme lent vous permet de ne pas être surpris. Petit à petit, vous approchez de l&#x27;autre côté du pont.</p><p>Une fois sur la terre ferme, vous soufflez longuement, en sueur mais soulagé : vous êtes sain et sauf !</p><p>Face à vous se dresse un immense escalier. Pressé de quitter la chaleur étouffante de cette salle diabolique, vous n&#x27;avez qu&#x27;une hâte : y grimper !</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587042886/une-aventure-dont-vous-etes-le-plombier/gpjtj4nwhfvffxhwuuzp.png" alt="" />
+            <nav><button data-yath-go-to="IZ-bwLJR">Vous montez donc ces escaliers</button><button data-yath-go-to="xvrZoTOvO">Vous faites plutôt demi-tour</button></nav>
+        </section>
+        
+         <section data-yath-screen="ldVlnEN42">
+            
+            <div><p>Vous avancez lentement dans le couloir, aux aguets. Vous êtes à l’affût du moindre bruit, du moindre détail suspect.</p><p>Un grondement sourd se fait alors entendre au-dessus de vous : le plafond tremble ! Mais surtout, la plafond se rapproche de vous...</p><p>Des Thwomps ! Ces briques vivantes qui ont dédié leur vie à écraser les intrus vous ont pris pour cible !</p><p>Vous avez atteint le milieu du couloir, il est trop tard pour faire demi-tour maintenant...<br/>D&#x27;un autre côté, votre marche lente ne vous permettra pas d&#x27;atteindre le bout du couloir à temps...</p><p></p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587055326/une-aventure-dont-vous-etes-le-plombier/trbsvh8cfglm5kue8yrj.png" alt="" />
+            <nav><button data-yath-go-to="_PXK6KcGB">Vous tentez une course impossible</button><button data-yath-go-to="2kzV0zn_Y">Vous restez sur place, sans bouger</button></nav>
+        </section>
+        
+         <section data-yath-screen="xvrZoTOvO">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1586987257/une-aventure-dont-vous-etes-le-plombier/kst4hmx9gzr76p9f7hze.png" alt="" />
+            <div><p>Alors, euh...</p><p>Vous êtes sûr de vous ? Vous venez tout juste de frôler une mort atroce, ça ne serait pas plus logique de continuer votre progression, plutôt ?</p><p>Rassurez-moi, vous lisez bien l&#x27;histoire depuis le début du jeu, non ? Vous ne cliquez tout de même pas au hasard sur les boutons, quand même ?</p><p>Bah... Cliquez juste sur le bouton ci-dessous alors, si c&#x27;est ça qui vous amuse...</p></div>
+            
+            <nav><button data-yath-go-to="IZ-bwLJR">Fraise</button></nav>
+        </section>
+        
+         <section data-yath-screen="2kzV0zn_Y">
+            
+            <div><p>Vous restez figé sur place et attendez patiemment.</p><p>Mais qu&#x27;attendez-vous exactement ? Qu&#x27;un miracle se produise ?</p><p>Et en effet, vous avez de la chance : une boule bleue, rapide comme l&#x27;éclair, surgit soudain de nul part pour détruire les Thwomps un à un.<br/>Médusé, vous regardez Sonic qui vous salue :</p><p>&quot;You&#x27;re too slow!&quot; vous lance-t-il avec un regard moqueur.</p><p>...</p><p>Non, je déconne.</p><p>Vous attendez un miracle en vain, car rien n&#x27;arrive pour vous sauver.<br/>Les Thwomps vous écrasent alors sans pitié.</p><p>Vous êtes mort.</p><p>Ce n&#x27;est pas une blague, vous êtes vraiment mort. Même Mario ne peut survivre écrasé par des briques de plusieurs tonnes !</p><p>Vous n&#x27;aviez que deux façons de mourir dans ce jeu, et vous venez d&#x27;en trouver une. Bravo ! Au moins, c&#x27;est un peu un succès en soi...</p><p>Bon, aller, je suis sympa. On va dire qu&#x27;il ne s&#x27;est rien passé, OK ?</p><p>Je vous ramène ni vu ni connu à l&#x27;entrée du château de Bowser. Que ça reste entre nous !</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587057067/une-aventure-dont-vous-etes-le-plombier/yzpwxzvuuvar8g9ippbc.png" alt="" />
+            <nav><button data-yath-go-to="213b54c0-3b8f-11ea-9aeb-93c65e7da706">Wha, merci, c'est sympa !</button></nav>
+        </section>
+        
+         <section data-yath-screen="rjcqNwkyT">
+            
+            <div><p>Vous restez figé sur place et attendez patiemment.</p><p>Mais qu&#x27;attendez-vous exactement ? Qu&#x27;un miracle se produise ?</p><p>Et en effet, vous avez de la chance : une boule bleue, rapide comme l&#x27;éclair...</p><p>Non, ok, j&#x27;arrête, deux fois la même vanne ce n&#x27;est jamais bon. On va donc faire court...</p><p>Vous êtes mort.</p><p>Mais en même temps, ce n&#x27;est pas une surprise, n&#x27;est-ce pas ? C&#x27;est la deuxième fois que vous faites la même erreur, n&#x27;allez pas dire que vous ne le cherchiez pas !</p><p>Vous vouliez voir si le jeu avait prévu le coup, je parie... Et bien oui, c&#x27;est prévu ! Bon, ça serait méchant de vous punir pour votre curiosité, alors je vous laisse continuer l&#x27;aventure malgré tout... Allez, on n&#x27;a qu&#x27;à dire que vous avez réussi à traverser le couloir et que vous êtes donc en face des escaliers.</p><p>Mais comme tout à l&#x27;heure, que ça reste entre nous, hein ?</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587057067/une-aventure-dont-vous-etes-le-plombier/yzpwxzvuuvar8g9ippbc.png" alt="" />
+            <nav><button data-yath-go-to="IZ-bwLJR">Vous montez les escaliers</button></nav>
+        </section>
+        
+         <section data-yath-screen="_PXK6KcGB">
+            
+            <div><p>Vous êtes vraiment trop loin du bout du couloir, ça ne sert à rien de se mettre à courir que maintenant...</p><p>Enfin bon, vous tentez le coup quand même, il aurait été dommage de rester planter sur place en attendant la mort arriver, après tout.</p><p>Vous vous lancez donc dans un ultime sprint pour votre vie. Jamais vous n&#x27;avez couru aussi vite ! <br/>Les Thwomps s&#x27;approchent dangereusement. Vous y êtes presque, mais ça va être tendu...</p><p>Alors que les briques vous frôlent les cheveux, vous vous projetez sur le sol dans une glissade improbable qui vous fait gagner quelques précieux centimètres.<br/>Défiant toutes les lois de la probabilité, vous êtes arrivé sain et sauf au bout du couloir ! Les Thwomps, désormais inoffensif, vous regardent d&#x27;un air déçu :</p><p>- Ha zut, c&#x27;est raté... Oh je déteste quand ça rate ! gémit le plus proche de vous.</p><p>Vous l&#x27;ignorez complètement pour vous approcher de l&#x27;escalier imposant qui vous fait face.</p><p></p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587062235/une-aventure-dont-vous-etes-le-plombier/jfi9lojfg3nswk7aubfj.png" alt="" />
+            <nav><button data-yath-go-to="IZ-bwLJR">Vous grimpez à l'escalier</button><button data-yath-go-to="xvrZoTOvO">Vous faites demi-tour</button></nav>
+        </section>
+        
+         <section data-yath-screen="FfZv1fFJR">
+            
+            <div><p>- Oui, entrez je vous prie ! crie Bowser derrière la porte.</p><p>Vous ouvrez et entrez d&#x27;un pas certain.<br/>Bowser vous tourne le dos. Il parle à la princesse Peach, enfermée dans une cage à côté du trône du roi des Koopas.</p><p>- Nos pizzas viennent d&#x27;arriver, princesse. Vous verrez, la Pizzeria del Koopa est la meilleure de la région.<br/>- J&#x27;espère qu&#x27;ils ont pensé à l&#x27;huile pimentée ! répond Peach.</p><p>Vous vous raclez la gorge pour signifier votre présence. Bowser se retourne et se fige sur place.</p><p>- M-Mario ? fit-il, surpris. Tu livres des pizzas maintenant ? Elles sont où, d&#x27;ailleurs ?</p><p>Que répondez-vous ?</p><p></p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587326045/une-aventure-dont-vous-etes-le-plombier/lrql8dolvwfafqpmmlhz.png" alt="" />
+            <nav><button data-yath-go-to="xerxP6-Ww">"Je les ai oubliées..."</button><button data-yath-go-to="7bliRZJKc">"Je viens délivrer Peach !"</button><button data-yath-go-to="4vZREB8gy">"Je venais simplement dire bonjour."</button></nav>
+        </section>
+        
+         <section data-yath-screen="dgHcSXGtE">
+            
+            <div><p>Vous ouvrez lentement la porte, sans un bruit, et vous jetez un œil par l&#x27;entrebâillement : Bowser est là, vous tournant le dos.<br/>Il parle à la princesse Peach, enfermée dans une cage à côté du trône du roi des Koopas.</p><p>Personne ne vous a encore remarqué.</p><p>Quel est votre plan ?</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587326204/une-aventure-dont-vous-etes-le-plombier/wbghmppi57rizrfilkpd.png" alt="" />
+            <nav><button data-yath-go-to="mrlcDZj2v">Vous vous approchez discrètement de Bowser</button><button data-yath-go-to="QlyRbAOzh">Vous signalez votre présence en vous raclant la gorge</button><button data-yath-go-to="J6MT0OgJ7">Vous vous ruez sur Bowser</button></nav>
+        </section>
+        
+         <section data-yath-screen="VtcZZzmpq">
+            
+            <div><p>Vous restez figé sur place et attendez patiemment.</p><p>Mais qu&#x27;attendez-vous exactement ? Qu&#x27;un miracle se produise ?</p><p>Et en effet, vous avez de la chance : une boule bleue, rapide comme l&#x27;éclair, surgit soudain de nul part pour détruire les Thwomps un à un. Médusé, vous regardez Sonic qui vous salue :</p><p>&quot;You&#x27;re too slow!&quot; vous lance-t-il avec un regard moqueur.</p><p>...</p><p>Non, je déconne.</p><p>Vous attendez un miracle en vain, car rien n&#x27;arrive pour vous sauver. Les Thwomps vous écrasent alors sans pitié.</p><p>Vous êtes mort.</p><p>Ce n&#x27;est pas une blague, vous êtes vraiment mort. Même Mario ne peut survivre écrasé par des briques de plusieurs tonnes !</p><p>Félicitations, vous avez réussi à trouver les deux façons de mourir dans ce jeu !</p><p>...</p><p>Je ne sais pas vraiment si c&#x27;est une victoire, en fait...<br/>En tout cas, pour Mario, pas tellement.</p><p>Aller, ça mérite une petite récompense quand même. Comme pour la salle de lave, je vous ressuscite.<br/>Et comme vous avez visiblement besoin d&#x27;un coup de pouce, je vous emmène directement au bout du couloir, face aux escaliers.</p><p>Ne me remerciez pas, c&#x27;est tout naturel.</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587057067/une-aventure-dont-vous-etes-le-plombier/yzpwxzvuuvar8g9ippbc.png" alt="" />
+            <nav><button data-yath-go-to="IZ-bwLJR">Vous montez les escaliers</button></nav>
+        </section>
+        
+         <section data-yath-screen="lY9SJ3GFq">
+            
+            <div><p>Vous commencez à courir pour atteindre le plus vite possible l&#x27;autre côté. Sous le rythme de vos pas, le pont tangue de plus en plus dangereusement...</p><p>Une boule de feu surgit et vous surprend dans votre course, vous obligeant à l&#x27;esquiver de justesse. Ce geste vous déséquilibre et vous trébuchez hors du pont.</p><p>Vous voyez le lac de lave se rapprocher de plus en plus à mesure que vous chutez, tandis que la chaleur se fait de plus en plus insupportable... jusqu&#x27;au moment fatal où vous plongez dans le magma.</p><p>Vous êtes mort.</p><p>Ce n&#x27;est pas une blague, vous êtes vraiment mort. Même Mario ne peut survivre dans un bassin de lave en fusion !</p><p>Félicitations, vous avez réussi à trouver les deux façons de mourir dans ce jeu !</p><p>...</p><p>Je ne sais pas vraiment si c&#x27;est une victoire, en fait...<br/>En tout cas, pour Mario, pas tellement.</p><p>Aller, ça mérite une petite récompense quand même. Comme pour la salle des Thwomps, je vous ressuscite. Et comme vous avez visiblement besoin d&#x27;un coup de pouce, je vous emmène directement au bout du pont, face aux escaliers.</p><p>Ne me remerciez pas, c&#x27;est tout naturel.</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587031034/une-aventure-dont-vous-etes-le-plombier/viiy6rhk5a9yrvweamp2.png" alt="" />
+            <nav><button data-yath-go-to="IZ-bwLJR">Vous montez les escaliers</button></nav>
+        </section>
+        
+         <section data-yath-screen="QlyRbAOzh">
+            
+            <div><p>- Ha tiens, le livreur de pizzas vient d&#x27;arriver ! s&#x27;exclame Bowser. Vous auriez pu frapper à la porte, quand même...</p><p>Bowser se retourne alors vers vous et se fige sur place.</p><p>- M-Mario ? fit-il, surpris. Tu livres des pizzas maintenant ? Elles sont où, d&#x27;ailleurs ?</p><p>Que répondez-vous ?</p><p></p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587326383/une-aventure-dont-vous-etes-le-plombier/k5godfqibt8s7lb9f4sy.png" alt="" />
+            <nav><button data-yath-go-to="xerxP6-Ww">"Je les ai oubliées..."</button><button data-yath-go-to="7bliRZJKc">"Je viens délivrer Peach !"</button><button data-yath-go-to="4vZREB8gy">"Je venais simplement dire bonjour."</button></nav>
+        </section>
+        
+         <section data-yath-screen="mrlcDZj2v">
+            
+            <div><p>Vous avancez à pas de loup vers Bowser, qui ne vous a toujours pas vu.</p><p>- Le livreur ne devrait pas tarder à arriver, dit-il à Peach. Vous verrez princesse, la Pizzeria del Koopa est la meilleure de la région !</p><p>Peach ne répond pas ; elle vous a vu et vous fixe dans les yeux. Vous posez votre index sur vos lèvres pour lui signifier de ne pas trahir votre présence.<br/>Chose que, bien entendu, elle ignore complètement :</p><p>- Hey, Mario ! crie-t-elle en vous saluant. Je suis là ! Tu en as pris du temps pour venir me chercher, cette fois !</p><p>Pour la discrétion, c&#x27;est fichu...<br/>Bowser se retourne vers vous, étonné :</p><p>- Mario, encore toi... Dis-moi, que comptais-tu faire en t&#x27;infiltrant comme ça ?</p><p>Que répondez-vous ?</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587326763/une-aventure-dont-vous-etes-le-plombier/oxirypcymlp4smdri9hy.png" alt="" />
+            <nav><button data-yath-go-to="7bliRZJKc">"Je viens délivrer Peach !"</button><button data-yath-go-to="4vZREB8gy">"Je venais simplement dire bonjour."</button></nav>
+        </section>
+        
+         <section data-yath-screen="xerxP6-Ww">
+            
+            <div><p>- Tu les as oubliées, je vois... rétorque Bowser, soupçonneux. Tu es arrivé jusqu&#x27;ici, jusque dans ma salle personnelle où j&#x27;ai enfermé Peach, et tu me dis que tu as oublié les pizzas que tu étais censé me livrer... Et tu penses que moi, le grand Roi des Koopas, je vais avaler ça ?</p><p>Il est évident que votre bobard ridicule ne va pas tenir longtemps. Il serait temps de vous préparer à un plan B...</p><p>- Allez, Mario... continue Bowser. Tu peux me le dire, on se connait depuis longtemps maintenant. Tu n&#x27;as pas du tout oublié mes pizzas, pas vrai ?</p><p>Les poings du tyran se serrent tandis qu&#x27;une lueur de colère traverse son regard.</p><p>- Avoue tout Mario ! Avoue que tu les as mangées ! Tu t&#x27;es régalé de ma Quatre Saisons et de la Carnivore de Peach !</p><p>Vous le regardez, abasourdi.<br/>Inutile de le raisonner, il va falloir combattre !</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587327048/une-aventure-dont-vous-etes-le-plombier/myfc1knst5o3ankfx58z.png" alt="" />
+            <nav><button data-yath-go-to="gUjf0VqGb">Let's-a go!</button></nav>
+        </section>
+        
+         <section data-yath-screen="4vZREB8gy">
+            
+            <div><p>- Ha... répond Bowser. Hé bien, bonjour à toi aussi, je suppose...</p><p>Il vous regarde, méfiant.</p><p>- J&#x27;imagine que mes pizzas ne sont pas encore arrivées, du coup...</p><p>Vous le regardez en vous grattant la tête, ne sachant que dire.</p><p>- Tu veux les attendre avec moi ? J&#x27;ai commandé une Quatre Saisons pour moi et une Carnivore pour Peach. On peut partager avec toi, je ne suis pas un gros mangeur de toute façon...</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587328066/une-aventure-dont-vous-etes-le-plombier/znrusxgm3czgkmulinjf.png" alt="" />
+            <nav><button data-yath-go-to="Um9-wi46y">Vous refusez</button><button data-yath-go-to="Eqdj1XDtS">Vous acceptez</button></nav>
+        </section>
+        
+         <section data-yath-screen="7bliRZJKc">
+            
+            <div><p>- Ha, tu viens délivrer Peach ! s&#x27;exclame Bowser. Comme c&#x27;est original ! Tu viens toujours sauver Peach !</p><p>Les poings serrés, il s&#x27;approche de vous, l&#x27;air plutôt énervé.</p><p>- Tu sais combien de temps ça me prend de la capturer ? C&#x27;est tout un travail à planifier ! Et toi, tu viens toujours tout gâcher, sans la moindre considération pour les efforts que j&#x27;ai fournis ! Hé bien j&#x27;en ai assez ! Cette fois, tu ne vas pas t&#x27;en tirer comme ça !</p><p>Le combat est inévitable, préparez-vous !</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587327048/une-aventure-dont-vous-etes-le-plombier/myfc1knst5o3ankfx58z.png" alt="" />
+            <nav><button data-yath-go-to="gUjf0VqGb">Let's-a go!</button></nav>
+        </section>
+        
+         <section data-yath-screen="J6MT0OgJ7">
+            
+            <div><p>Vous vous lancez à l&#x27;assaut de Bowser qui ne vous a toujours pas remarqué.</p><p>- Le livreur ne devrait pas tarder à arriver, dit-il à Peach. Vous verrez princesse, la Pizzeria del Koopa est... Mais qu&#x27;est-ce que... ?</p><p>Dans votre course pour vous jeter sur Bowser, vous avez malencontreusement trébuché, vous affalant avec vacarme sur le sol...</p><p>- M-Mario ? fit-il, surpris. Que fais-tu par terre ? Tu te prosternes enfin devant moi, c&#x27;est ça ?</p><p>Vous vous levez en vous frottant vos jambes endolories par la chute.</p><p>- Oh, à moins que tu ne sois venu livré mes pizzas ? Elles sont où, d&#x27;ailleurs ?</p><p>Que répondez-vous ?</p><p></p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587326554/une-aventure-dont-vous-etes-le-plombier/gkcdwwemexwx0fjchjm4.png" alt="" />
+            <nav><button data-yath-go-to="xerxP6-Ww">"Je les ai oubliées..."</button><button data-yath-go-to="7bliRZJKc">"Je viens délivrer Peach !"</button><button data-yath-go-to="4vZREB8gy">"Je venais simplement dire bonjour."</button></nav>
+        </section>
+        
+         <section data-yath-screen="gUjf0VqGb">
+            
+            <div><p>La bataille contre Bowser commence !</p><p>Vous êtes le plus rapide et attaquez le premier, avec tout le charisme qui se doit. Vous lui sautez sur la tête mais cela ne lui fait rien. Il tente de vous cracher une boule de feu que vous évitez facilement.</p><p>Vous tentez un coup de marteau, mais il vous bloque avec son bras et essaye de vous donner une baffe de l&#x27;autre. Vous vous accroupissez à temps pour esquiver le coup.</p><p>Le combat dure ainsi pendant deux bonnes heures, quand vous vous écroulez de fatigue, suivi de près par Bowser.<br/>Peach, quant à elle, s&#x27;est endormie dans sa cage... </p><p>Épuisé, Bowser vous autorise à la ramener chez elle. Ce n&#x27;est pas un sauvetage très héroïque, certes, mais ça reste un sauvetage tout de même !</p><p><strong>Félicitations !</strong></p><p>Vous avez bravé énormément de dangers et avez surmonté des obstacles machiavéliques pour sauver Peach ! Votre mission est une réussite !</p><p>Vous ramenez la princesse dans son château et repartez chez vous. Luigi n&#x27;est pas là, il doit être parti faire un tour. Ne vous vous en préoccupez pas et reposez-vous !</p><p><strong>FIN</strong></p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587833325/une-aventure-dont-vous-etes-le-plombier/ttb3wvdlldvbmtfueslo.png" alt="" />
+            <nav></nav>
+        </section>
+        
+         <section data-yath-screen="Um9-wi46y">
+            
+            <div><p>- Non ? dit Bowser, déçu. Tant pis, ça aurait pu être sympa. On aurait pu discuter un peu, plutôt que de toujours se battre. Et tout ça pour quoi ? Pour Peach... Est-ce que ça en vaut la peine, franchement ?<br/>- Hey ! rétorque la princesse. Je suis là je te signale ! Bien sûr que j&#x27;en vaux la peine !</p><p>Vous haussez les épaules, ne sachant que dire.</p><p>- De toute façon, reprend Bowser, on ne peut pas y faire grand chose. C&#x27;est Nintendo qui décide tout ça, pas vrai ? Ils ont fait de nous des ennemis, alors battons-nous !</p><p>Il se positionne devant vous, d&#x27;un air plus mélancolique que menaçant.</p><p>- Allez Mario, en garde !</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587327307/une-aventure-dont-vous-etes-le-plombier/v9989fjaauvbhmkx8y8n.png" alt="" />
+            <nav><button data-yath-go-to="gUjf0VqGb">Let's-a go!</button></nav>
+        </section>
+        
+         <section data-yath-screen="Eqdj1XDtS">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587678446/une-aventure-dont-vous-etes-le-plombier/z2rhvqgovheohxlj6xsx.png" alt="" />
+            <div><p>Le livreur ne tarda pas à arriver. <br/>La princesse Peach, toujours dans sa cage, a englouti seule sa pizza Carnivore tandis que vous avez partagé la Quatre Saisons avec Bowser. Les pizzas étaient bien chaudes avec une pâte bien croustillante, un délice !</p><p>Ce fut un moment très agréable comme on en fait rarement.</p><p>- C&#x27;était bien sympa, fit Bowser. On pourrait se refaire ça, à l&#x27;occas&#x27;, non ?</p><p>Il est temps de partir : vous vous levez et vous approchez de Peach pour la libérer et l&#x27;emmener avec vous.</p><p>- Hey, attends une minute Mario ! s&#x27;exclame Bowser. Que comptes-tu faire exactement, là ? Partir avec la princesse, comme ça ?</p><p>Vous vous figez sur place.</p><p>- Avant de partir, tu pourrais au moins me donner quelques pièces pour compenser les parts de pizzas que tu as mangées, non ? Je me serais attendu à ce que le grand Mario soit plus poli et généreux que ça...</p></div>
+            
+            <nav><button data-yath-go-to="Rv6NiEand">Vous acceptez de payer votre part</button><button data-yath-go-to="qA4tO6C4r">Vous refusez de payer votre part</button></nav>
+        </section>
+        
+         <section data-yath-screen="wWZCql__t">
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587679034/une-aventure-dont-vous-etes-le-plombier/l4dz2hydpuqjjsp4lh5r.png" alt="" />
+            <div><p>Le livreur ne tarda pas à arriver.  La princesse Peach, toujours dans sa cage, mange seule sa pizza Carnivore tandis que vous partagez la Quatre Saisons avec Bowser.</p><p>Seulement.. Vous n&#x27;avez pas faim : vous avez déjà mangé une pizza au début de votre aventure, et elle pèse encore dans votre estomac !</p><p>Bowser remarque votre manque d&#x27;appétit :</p><p>- Hé bien Mario, tu ne manges pas ? La pizza n&#x27;est pas à ton goût ?</p><p>Ne voulant surtout pas vexer Bowser, vous lui expliquez que vous n&#x27;avez simplement pas faim.</p><p>- Je vois... se vexe malgré tout Bowser. Je te fais l&#x27;honneur de partager mon repas, et tu refuses de manger. Môssieu Mario fait la fine bouche !</p><p>Très énervé, il se lève et vous fait face, les poings serrés.</p><p>- Puisque tu ne veux pas de pizzas, que dirais-tu de quelques marrons... ?</p><p>Le combat est inévitable, préparez-vous !</p></div>
+            
+            <nav><button data-yath-go-to="gUjf0VqGb">Let's-a go!</button></nav>
+        </section>
+        
+         <section data-yath-screen="Rv6NiEand">
+            
+            <div><p>Vous donnez donc quelques pièces à Bowser pour payer votre part (voire un peu plus, autant se montrer généreux, on ne voudrait pas le vexer !).</p><p>Le roi des Koopas est ravi et ouvre la cage de la princesse qui se jette dans vos bras. Vous n&#x27;osez pas lui dire qu&#x27;elle s&#x27;est faite une grosse tâche de sauce tomate sur sa robe.</p><p>Ensemble, vous saluez votre hôte et partez, main dans la main.</p><p><strong>Félicitations !</strong></p><p>Vous avez bravé énormément de dangers et avez passé des obstacles machiavéliques pour sauver Peach ! Et en plus, vous avez mangé une bonne pizza... Votre mission est une totale réussite !</p><p>Vous ramenez la princesse dans son château et repartez chez vous.<br/>Luigi n&#x27;est pas là, il doit être parti faire un tour. Ne vous vous en préoccupez pas et reposez-vous !</p><p><strong>FIN </strong><em>(alternative, bien joué pour l&#x27;avoir trouvée !)</em></p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587833311/une-aventure-dont-vous-etes-le-plombier/l4aukfmtv8rsg8tohpmo.png" alt="" />
+            <nav></nav>
+        </section>
+        
+         <section data-yath-screen="r7XNLYJof">
+            
+            <div><p>Vous sortez votre bourse et glissez la main à l&#x27;intérieur pour sortir quelques pièces. Seulement voilà : votre dépense de 999 pièces à Square Tuyau a bien réduit votre richesse. C&#x27;est bien simple, votre bourse est vide !</p><p>Gêné, vous expliquez la situation à Bowser, qui a bien du mal à être compréhensif :</p><p>- Bha bien sûr... grogne-t-il. Je te fais l&#x27;honneur de partager mon repas, et comme par hasard tu ne peux pas participer financièrement... Môssieu Mario n&#x27;a soudainement pas un rond ! Quel menteur !</p><p>Très énervé, il se lève et vous fait face, les poings serrés.</p><p>- Puisque tu t&#x27;es engraissé sur mon dos, je te propose maintenant un peu d&#x27;exercice... Un bon vieux combat !</p><p>Pas le temps de digérer, préparez-vous pour la bataille !</p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587679531/une-aventure-dont-vous-etes-le-plombier/efy08efu253gvqlb1c5h.png" alt="" />
+            <nav><button data-yath-go-to="gUjf0VqGb">Let's-a go!</button></nav>
+        </section>
+        
+         <section data-yath-screen="qA4tO6C4r">
+            
+            <div><p>- Ha d&#x27;accord, grogne Bowser. Je te fais l&#x27;honneur de partager mon repas, mais tu ne veux même pas participer financièrement. Môssieu Mario préfère se faire inviter ! Quel égoïste !</p><p>Très énervé, il se lève et vous fait face, les poings serrés.</p><p>- Puisque tu t&#x27;es engraissé sur mon dos, je te propose maintenant un peu d&#x27;exercice... Un bon vieux combat !</p><p>Pas le temps de digérer, préparez-vous pour la bataille !</p><p></p></div>
+            <img class="yathImage" src="https://res.cloudinary.com/yath/image/upload/v1587679531/une-aventure-dont-vous-etes-le-plombier/efy08efu253gvqlb1c5h.png" alt="" />
+            <nav><button data-yath-go-to="gUjf0VqGb">Let's-a go!</button></nav>
+        </section>
+        
+        <script>const g = yath(document.body, {onScreenChange:function(o){var game=o.game,screenName=o.screenName;var m={"d1457710-355e-11ea-ae4d-fdc84c351402":{"n":"Introduction","s":"/Introduction"},"26d797d0-355f-11ea-ae4d-fdc84c351402":{"n":"Introduction Mario","s":"/Introduction-Mario"},"38121c00-3578-11ea-a80e-eb180b2deed3":{"n":"Pizzeria","s":"/Pizzeria"},"dec78a50-357b-11ea-a80e-eb180b2deed3":{"n":"Mario mange bien","s":"/Mario-mange-bien"},"e5d23540-3600-11ea-b7d5-c579c65ed020":{"n":"Mario fait le difficile","s":"/Mario-fait-le-difficile"},"d4a0da00-3601-11ea-b7d5-c579c65ed020":{"n":"Square Tuyau","s":"/Square-Tuyau"},"59d30ea0-3602-11ea-b7d5-c579c65ed020":{"n":"Mario ne mange rien","s":"/Mario-ne-mange-rien"},"6987a300-3603-11ea-b7d5-c579c65ed020":{"n":"Chemin vers Bowser","s":"/Chemin-vers-Bowser"},"1a2ff0e0-3604-11ea-b7d5-c579c65ed020":{"n":"Mario croise un Goomba et un Koopa","s":"/Mario-croise-un-Goomba-et-un-Koopa"},"e198cd10-36cb-11ea-858d-e5fa992a2a70":{"n":"Mario écoute les ennemis","s":"/Mario-ecoute-les-ennemis"},"9c922340-36cd-11ea-858d-e5fa992a2a70":{"n":"Mario écrase les ennemis","s":"/Mario-ecrase-les-ennemis"},"1f6a3b40-36ce-11ea-858d-e5fa992a2a70":{"n":"Mario fait la queue","s":"/Mario-fait-la-queue"},"448aee60-36ce-11ea-858d-e5fa992a2a70":{"n":"Bousculade","s":"/Bousculade"},"1fcd7670-392a-11ea-9191-19ccc69b0a00":{"n":"Vers la Vallée de Bowser","s":"/Vers-la-Vallee-de-Bowser"},"55a33cd0-3b82-11ea-9aeb-93c65e7da706":{"n":"Avancée tranquille","s":"/Avancee-tranquille"},"0cdb9260-3b8f-11ea-9aeb-93c65e7da706":{"n":"Tentative d'infiltration","s":"/Tentative-d'infiltration"},"213b54c0-3b8f-11ea-9aeb-93c65e7da706":{"n":"Entrée du château de Bowser","s":"/Entree-du-chateau-de-Bowser"},"7kMfFGs7":{"n":"Mario pique un sprint","s":"/Mario-pique-un-sprint"},"wJUtIyIB":{"n":"En prison (première visite)","s":"/En-prison-(premiere-visite)"},"fdUIAbLC":{"n":"Mario tente de forcer la porte","s":"/Mario-tente-de-forcer-la-porte"},"LTXhwirJ":{"n":"Mario fouille","s":"/Mario-fouille"},"f2siG711":{"n":"Face à la porte du château","s":"/Face-a-la-porte-du-chateau"},"575fed40-435f-11ea-9593-ff64ebe435f4":{"n":"Salle de lave","s":"/Salle-de-lave"},"lb5nzxn_":{"n":"Toujours en prison","s":"/Toujours-en-prison"},"meuXdih9":{"n":"Examiner la porte","s":"/Examiner-la-porte"},"MC0JQNSk":{"n":"Inspecter le tabouret","s":"/Inspecter-le-tabouret"},"bvdzH5lX":{"n":"Admirer le poster","s":"/Admirer-le-poster"},"nxcr_mX1":{"n":"Vérifier la fenêtre","s":"/Verifier-la-fenetre"},"gfxTifnX":{"n":"Mario trouve la clé","s":"/Mario-trouve-la-cle"},"dOYm_okh":{"n":"Ouverture de la porte","s":"/Ouverture-de-la-porte"},"CfX7f5aO":{"n":"Mario regarde par la fenêtre","s":"/Mario-regarde-par-la-fenetre"},"msx0AH3t":{"n":"Mario casse le tabouret","s":"/Mario-casse-le-tabouret"},"vK4yss5V":{"n":"Inspecter le tabouret cassé","s":"/Inspecter-le-tabouret-casse"},"LiRTDNmB":{"n":"\"Réparer\" un barreau","s":"/\"Reparer\"-un-barreau"},"ZYtbU4v6":{"n":"Vérifier la fenêtre (avec le pied de tabouret)","s":"/Verifier-la-fenetre-(avec-le-pied-de-tabouret)"},"Bo4K0uB8":{"n":"Vérifier la fenêtre (barreau déjà replacé)","s":"/Verifier-la-fenetre-(barreau-deja-replace)"},"hwb5-4op":{"n":"Mario soulève le poster","s":"/Mario-souleve-le-poster"},"-_VloJs1":{"n":"Mario a déjà la clé","s":"/Mario-a-deja-la-cle"},"nmTAQIij":{"n":"Mario traverse le pont","s":"/Mario-traverse-le-pont"},"LHz8Jinx":{"n":"Juste un escalier...","s":"/Juste-un-escalier..."},"IZ-bwLJR":{"n":"En haut des escaliers","s":"/En-haut-des-escaliers"},"NoGuIzHm":{"n":"Un long couloir","s":"/Un-long-couloir"},"nGbLwbc7":{"n":"Mario court dans le couloir","s":"/Mario-court-dans-le-couloir"},"QzT4mLrj":{"n":"Mario tombe dans la lave","s":"/Mario-tombe-dans-la-lave"},"vpLg0Qf5":{"n":"Mario retombe dans la lave...","s":"/Mario-retombe-dans-la-lave..."},"WHigTdSW":{"n":"Mario reste prudent sur le pont","s":"/Mario-reste-prudent-sur-le-pont"},"ldVlnEN42":{"n":"Mario marche dans le couloir","s":"/Mario-marche-dans-le-couloir"},"xvrZoTOvO":{"n":"Mario fait demi-tour, vraiment ?","s":"/Mario-fait-demi-tour-vraiment"},"2kzV0zn_Y":{"n":"Mario reste sur place","s":"/Mario-reste-sur-place"},"rjcqNwkyT":{"n":"Mario reste encore sur place...","s":"/Mario-reste-encore-sur-place..."},"_PXK6KcGB":{"n":"Mario fait une course impossible","s":"/Mario-fait-une-course-impossible"},"FfZv1fFJR":{"n":"Mario toque à la porte","s":"/Mario-toque-a-la-porte"},"dgHcSXGtE":{"n":"Mario entre sans frapper","s":"/Mario-entre-sans-frapper"},"VtcZZzmpq":{"n":"Mario se fait écraser après la lave","s":"/Mario-se-fait-ecraser-apres-la-lave"},"lY9SJ3GFq":{"n":"Mario tombe dans la lave après les Thwomps","s":"/Mario-tombe-dans-la-lave-apres-les-Thwomps"},"QlyRbAOzh":{"n":"Mario se racle la gorge","s":"/Mario-se-racle-la-gorge"},"mrlcDZj2v":{"n":"Mario s'approche de Bowser","s":"/Mario-s'approche-de-Bowser"},"xerxP6-Ww":{"n":"Mario a oublié les pizzas ?","s":"/Mario-a-oublie-les-pizzas"},"4vZREB8gy":{"n":"Mario voulait dire \"bonjour\"","s":"/Mario-voulait-dire-\"bonjour\""},"7bliRZJKc":{"n":"Mario voulait sauver Peach","s":"/Mario-voulait-sauver-Peach"},"J6MT0OgJ7":{"n":"Mario se rue sur Bowser","s":"/Mario-se-rue-sur-Bowser"},"gUjf0VqGb":{"n":"Le combat commence","s":"/Le-combat-commence"},"Um9-wi46y":{"n":"Mario refuse la proposition","s":"/Mario-refuse-la-proposition"},"Eqdj1XDtS":{"n":"Mario accepte la proposition","s":"/Mario-accepte-la-proposition"},"wWZCql__t":{"n":"Mario accepte mais n'a pas faim","s":"/Mario-accepte-mais-n'a-pas-faim"},"Rv6NiEand":{"n":"Mario paye sa part","s":"/Mario-paye-sa-part"},"r7XNLYJof":{"n":"Mario ne peut pas payer","s":"/Mario-ne-peut-pas-payer"},"qA4tO6C4r":{"n":"Mario refuse de payer","s":"/Mario-refuse-de-payer"}};t(m[screenName].n,m[screenName].s);if(screenName==='meuXdih9'){if(game.inventory.countItem('eSGe9Qhd')>0){game.goToScreen('dOYm_okh');return false;}} else if(screenName==='MC0JQNSk'){if(game.hasVisitedScreen('msx0AH3t')){game.goToScreen('vK4yss5V');return false;}} else if(screenName==='nxcr_mX1'){if(game.inventory.countItem('aHw3ei-O')>0){game.goToScreen('ZYtbU4v6');return false;}if(game.hasVisitedScreen('LiRTDNmB')){game.goToScreen('Bo4K0uB8');return false;}} else if(screenName==='gfxTifnX'){game.inventory.addItem('eSGe9Qhd',1);} else if(screenName==='msx0AH3t'){game.inventory.addItem('aHw3ei-O',1);} else if(screenName==='LiRTDNmB'){game.inventory.removeItem('aHw3ei-O',1);} else if(screenName==='hwb5-4op'){if(game.hasVisitedScreen('LiRTDNmB')&&game.inventory.countItem('eSGe9Qhd')<1){game.goToScreen('gfxTifnX');return false;}if(game.inventory.countItem('eSGe9Qhd')===1){game.goToScreen('-_VloJs1');return false;}} else if(screenName==='QzT4mLrj'){if(game.hasVisitedScreen('QzT4mLrj')){game.goToScreen('vpLg0Qf5');return false;}if(game.hasVisitedScreen('2kzV0zn_Y')){game.goToScreen('lY9SJ3GFq');return false;}} else if(screenName==='2kzV0zn_Y'){if(game.hasVisitedScreen('2kzV0zn_Y')){game.goToScreen('rjcqNwkyT');return false;}if(game.hasVisitedScreen('QzT4mLrj')){game.goToScreen('VtcZZzmpq');return false;}} else if(screenName==='Eqdj1XDtS'){if(game.hasVisitedScreen('dec78a50-357b-11ea-a80e-eb180b2deed3')){game.goToScreen('wWZCql__t');return false;}} else if(screenName==='Rv6NiEand'){if(game.hasVisitedScreen('1fcd7670-392a-11ea-9191-19ccc69b0a00')){game.goToScreen('r7XNLYJof');return false;}}}});g.goToScreen('d1457710-355e-11ea-ae4d-fdc84c351402');</script>
+    </body>
+</html>
